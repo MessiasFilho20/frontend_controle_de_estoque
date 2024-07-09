@@ -18,9 +18,7 @@
 <script lang="ts" setup>
 const use_category = useCategory()
 
-onMounted( async () =>{
-   await useCategory().getAllCategoryes()
-})
+
 
 </script>
 

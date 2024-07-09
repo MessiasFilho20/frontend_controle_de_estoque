@@ -10,7 +10,6 @@
           </button >
         </div>
         <DialogDescription>
-          Anyone who has this link will be able to view this.
         </DialogDescription>
       </DialogHeader>
       <div class="flex items-center space-x-2">

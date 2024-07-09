@@ -12,7 +12,7 @@
     }"
   >
     <swiper-slide class=" flex justify-center " v-for="slide in useCategory().categories" :key="slide.id">
-      <div class=" active:scale-95  p-1 border shadow-2xl rounded-md w-full px-2 whitespace-nowrap ">
+      <div @click="clicCategory(slide.id)" class=" active:scale-95  p-1 border shadow-2xl rounded-md w-full px-2 whitespace-nowrap ">
         <span class="">{{ slide.name}}</span> 
       </div>
      
@@ -25,6 +25,13 @@
 const use_category = useCategory()
 
 
+const emit = defineEmits<{
+    (e: 'selectCategory', categoryID: number ): void
+  }>()
+
+const clicCategory = (id: number) =>{
+  emit('selectCategory', id)
+}
 </script>
 
 <style>

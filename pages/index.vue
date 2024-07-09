@@ -12,28 +12,31 @@
       </div>
    </div>
    <div class="px-2">
-     <Categorys/>
-   </div>
+     <Categorys @selectCategory=" args => useModal().idCategory = args"/>
+    </div>
    <div class="w-full overflow-hidden">
-    <TableItems/>
+    <TableItems  />
    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-
 const use_modal = useModal()
+const idCategory = ref()
 
+
+
+definePageMeta({
+  name: 'index'
+})
 
 const clickcreate = () =>{
   use_modal.category = true
-onMounted( async  () =>{
-  console.log('oi');
-     
-  await useCategory().getAllCategoryes()
-  })
 }
 
+onMounted( async () =>{
+  return useCategory().getAllCategoryes()
+})
 
 </script>
 

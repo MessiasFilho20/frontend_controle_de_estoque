@@ -1,36 +1,43 @@
 <template>
   <div>
     <Table>
-    <TableCaption>A list of your recent invoices.</TableCaption>
+    <TableCaption></TableCaption>
     <TableHeader>
+      <div>asdad</div>
       <TableRow>
-        <TableHead class="w-[100px]">
-          Invoice
+        <TableHead class="">
+          Items
         </TableHead>
-       
-        <TableHead class="text-right">
-          Amount
+        <TableHead class="w-[100px]">
+          Descrição
+        </TableHead>
+        <TableHead class="">
+          
+        </TableHead>
+        <TableHead class="">
+          Quantidade
+        </TableHead>
+        <TableHead class="">
+          Unidade
+        </TableHead>
+        <TableHead class="whitespace-nowrap">
+          Q-Emergencia
+        </TableHead>
+        <TableHead class="">
+          Unid.
         </TableHead>
       </TableRow>
     </TableHeader>
     <TableBody>
-      <TableRow>
-        <TableCell class="font-medium">
-          INV001
+      <TableRow  v-for="i in 10">
+        <TableCell class="font-medium flex justify-center">
+          <span>{{ i }}</span>
         </TableCell>
-        <TableCell>Paid</TableCell>
-        <TableCell>Credit Card</TableCell>
-        <TableCell class="text-right">
-          $250.00
-        </TableCell>
-        <TableCell class="text-right">
-          $250.00
-        </TableCell>
-        <TableCell class="text-right">
-          $250.00
-        </TableCell>
-        <TableCell class="text-right">
-          $250.00
+        <TableCell>
+          <div>
+            
+          </div>
+          <span>dljgdklgdçlkjçlkfghlkfghlkdfgdgasfa</span>
         </TableCell>
       </TableRow>
     </TableBody>
@@ -39,6 +46,13 @@
 </template>
 
 <script lang="ts" setup>
+
+const props = defineProps({
+    id: {
+      default: '', 
+      type: Number
+    }
+})
 
 </script>
 

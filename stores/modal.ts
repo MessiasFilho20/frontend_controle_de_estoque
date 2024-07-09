@@ -1,5 +1,6 @@
 export const useModal = defineStore('modal', {
     state: () => ({
-        category: false 
+        category: false,  
+        idCategory: 0
     })
 })
