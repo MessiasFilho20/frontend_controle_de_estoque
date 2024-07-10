@@ -1,3 +1,12 @@
+export interface itemsInterface{
+    quantidade: number, 
+    quanti_emerg: number, 
+    unidade: number, 
+    img: string | null, 
+    fornecedor: string, 
+    descricao: string
+}
+
 export const useMetallurgy = defineStore('metallurgy', {
     state: () =>({}), 
     actions:{

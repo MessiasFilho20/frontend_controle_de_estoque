@@ -12,10 +12,11 @@
       </div>
    </div>
    <div class="px-2">
-     <Categorys @selectCategory=" args => useModal().idCategory = args"/>
+     <!-- <Categorys @description-category="args =>  categoryname = args" @select-category="args => idCategory = args"/> -->
     </div>
+   
    <div class="w-full overflow-hidden">
-    <TableItems  />
+    <!-- <TableItems  /> -->
    </div>
   </div>
 </template>
@@ -23,7 +24,7 @@
 <script lang="ts" setup>
 const use_modal = useModal()
 const idCategory = ref()
-
+const categoryname = ref()
 
 
 definePageMeta({

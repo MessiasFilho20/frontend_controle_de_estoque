@@ -14,14 +14,17 @@
       </DialogHeader>
       <div class="flex items-center space-x-2">
         <div class="grid flex-1 gap-2">
-        <input  v-model="category.name" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
+          <span>Nome</span>
+          <input v-model="category.name" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
+          <span>Descrição</span>
+          <input  v-model="category.description" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
         </div>
+      </div>
+      <DialogFooter class="sm:justify-start">
         <Button @click="createCategory()" size="sm" class="px-3 active:scale-95">
          <span>OK</span>
         </Button>
-      </div>
-      <DialogFooter class="sm:justify-start">
-       
+        
       </DialogFooter>
     </DialogContent>
   </Dialog>
@@ -31,12 +34,13 @@
 <script lang="ts" setup>
 const use_category = useCategory()
 
-const category = ref({
-  name : ''
+const category = ref<categoryInterface>({
+  name : '', 
+  description: ''
 })
 
 const createCategory = async () => {
-    await use_category.createCategory(category.value.name)
+    await use_category.createCategory({name:category.value.name, description: category.value.description})
 }
 
 </script>

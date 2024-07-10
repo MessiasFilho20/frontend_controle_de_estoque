@@ -13,11 +13,15 @@
         </div>
     </div>
     <CreateCategory/>
+    <CreateItems/>
 </template>
 
 <script lang="ts" setup>
 const use_category = useCategory()
 
+onMounted(async () => {
+    await use_category.getAllCategoryes()
+})
 
 
 </script>

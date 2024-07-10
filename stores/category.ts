@@ -1,5 +1,6 @@
 export interface categoryInterface {
     name: string
+    description: string
 }
 export interface showCategory extends categoryInterface{
     id: number
@@ -10,12 +11,12 @@ export const useCategory = defineStore('category', {
         category: {} as categoryInterface
     }), 
     actions: {
-        async createCategory(name :string){
+        async createCategory(category : categoryInterface){
            
             const {data , error} = await useFetch<categoryInterface>('category/create', {
                 method: 'post',
                 baseURL: useRuntimeConfig().public.backnend, 
-                body:{name}
+                body:{...category}
             })
             if (error.value){
                 console.log(error.value.data);
