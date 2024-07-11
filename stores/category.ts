@@ -29,7 +29,7 @@ export const useCategory = defineStore('category', {
         }, 
 
         async getAllCategoryes() {
-            const {data , error} = await useFetch<showCategory[]>('category/all', {
+            const {data , error , pending } = await useFetch<showCategory[]>('category/all', {
                 method: 'get',
                 baseURL: useRuntimeConfig().public.backnend, 
             })
@@ -38,7 +38,10 @@ export const useCategory = defineStore('category', {
             }
             if (data.value){
                 this.categories = data.value
-                
+            }
+
+            if (pending.value){
+                this.getAllCategoryes()
             }
 
         }

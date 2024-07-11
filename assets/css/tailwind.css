@@ -34,8 +34,15 @@
     --ring: 222.2 84% 4.9%;
  
     --radius: 0.5rem;
+
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 12px; /* Altura da barra de rolagem horizontal */
+    }
+    
+    
+
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;

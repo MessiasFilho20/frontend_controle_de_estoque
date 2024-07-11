@@ -12,19 +12,18 @@
       </div>
    </div>
    <div class="px-2">
-     <!-- <Categorys @description-category="args =>  categoryname = args" @select-category="args => idCategory = args"/> -->
+     <Categorys/> 
     </div>
    
    <div class="w-full overflow-hidden">
-    <!-- <TableItems  /> -->
+     <TableItems  /> 
    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 const use_modal = useModal()
-const idCategory = ref()
-const categoryname = ref()
+
 
 
 definePageMeta({
@@ -36,11 +35,31 @@ const clickcreate = () =>{
 }
 
 onMounted( async () =>{
-  return useCategory().getAllCategoryes()
+  console.log('oi');
+  
+  await useCategory().getAllCategoryes()
 })
 
 </script>
 
-<style>
+<style scoped> 
+
+/* Estilos adicionais, se necessário */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 12px; /* Altura da barra de rolagem horizontal */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cor do fundo da trilha */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Cor da parte móvel */
+  border-radius: 6px; /* Raio da borda da parte móvel */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor da parte móvel ao passar o mouse */
+}
 
 </style>

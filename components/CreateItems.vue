@@ -40,6 +40,7 @@
 </template>
 
 <script lang="ts" setup>
+const use_metallury = useMetallurgy()
 const items = ref<itemsInterface>({
     descricao: '', 
     fornecedor: '', 
@@ -50,8 +51,8 @@ const items = ref<itemsInterface>({
 
 })
 
-const createItems = () =>{
-
+const createItems = async () =>{
+    await use_metallury.createMetallurgy(useModal().idCategory, items.value )
 }
 </script>
 
