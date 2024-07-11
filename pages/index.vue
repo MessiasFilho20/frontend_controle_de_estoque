@@ -16,7 +16,12 @@
     </div>
    
    <div class="w-full overflow-hidden">
-     <TableItems  /> 
+     <div >  
+      <TableItems/> 
+    </div>
+   
+
+    
    </div>
   </div>
 </template>

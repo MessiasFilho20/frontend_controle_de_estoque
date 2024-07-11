@@ -14,6 +14,7 @@
     </div>
     <CreateCategory/>
     <CreateItems/>
+    <UpdateCategory/>
 </template>
 
 <script lang="ts" setup>

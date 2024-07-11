@@ -1,3 +1,5 @@
+import { metadata } from "@vueuse/core/metadata.cjs"
+
 export interface categoryInterface {
     name: string
     description: string
@@ -44,6 +46,20 @@ export const useCategory = defineStore('category', {
                 this.getAllCategoryes()
             }
 
+        },
+        async deleteCategory(id:number) {
+            const {data, error} = await useFetch(`category/delete/${id}`, {
+                method: 'delete', 
+                baseURL: useRuntimeConfig().public.backnend, 
+            })
+            if (error.value){
+                console.log(error.value);
+            }
+            if (data.value){
+                
+                this.getAllCategoryes()
+                
+            }
         }
     }
 })

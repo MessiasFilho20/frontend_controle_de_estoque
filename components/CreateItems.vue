@@ -14,7 +14,7 @@
       </DialogHeader>
       <div class="flex items-center space-x-2">
         <div class="grid flex-1 gap-2">
-          <span>Nome</span>
+          <span>Descrição</span>
           <input v-model="items.descricao" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <span>fornecedor</span>
           <input  v-model="items.fornecedor" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">

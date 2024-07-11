@@ -1,10 +1,10 @@
-<template>
-  <div>
+<template >
+  <div >
     <div class="px-2 w-full flex items-center">
       <span class="w-full ">{{ useModal().name_category }}</span>
    
     </div>
-    <Table>
+    <Table v-if="useMetallurgy().all">
       <TableCaption></TableCaption>
       
       <TableHeader >
@@ -14,9 +14,6 @@
         </TableHead>
         <TableHead class="w-[100px]">
           Descrição
-        </TableHead>
-        <TableHead class="">
-          
         </TableHead>
         <TableHead class="">
           Quantidade
@@ -33,13 +30,24 @@
       </TableRow>
     </TableHeader>
     <TableBody>
-      <TableRow  v-for="i in useMetallurgy().all">
+      <TableRow  v-for=" items in useMetallurgy().all">
         <TableCell class="font-medium flex justify-center">
-          <span>{{ i.descricao }}</span>
+          <span class="whitespace-nowrap">{{ items.id }}</span>
         </TableCell>
         <TableCell>
-         
-          <span>dljgdklgdçlkjçlkfghlkfghlkdfgdgasfa</span>
+          <span class="whitespace-nowrap">{{ items.descricao }}</span>
+        </TableCell>
+        <TableCell>
+          <span class="whitespace-nowrap">{{ items.quantidade }}</span>
+        </TableCell>
+        <TableCell>
+          <span class="whitespace-nowrap">{{ items.unidade }}</span>
+        </TableCell>
+        <TableCell>
+          <span class="whitespace-nowrap">{{ items.quanti_emerg }}</span>
+        </TableCell>
+        <TableCell>
+          <span class="whitespace-nowrap">{{ items.fornecedor }}</span>
         </TableCell>
       </TableRow>
     </TableBody>
@@ -48,6 +56,8 @@
 </template>
 
 <script lang="ts" setup>
+
+
 
 const use_modal = useModal()
 

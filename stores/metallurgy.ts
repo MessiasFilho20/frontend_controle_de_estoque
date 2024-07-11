@@ -6,10 +6,13 @@ export interface itemsInterface{
     fornecedor: string, 
     descricao: string
 }
+export interface itemsID extends itemsInterface {
+    id: number
+}
 
 export const useMetallurgy = defineStore('metallurgy', {
     state: () =>({
-        all : [] as itemsInterface []
+        all : [] as itemsID []
     }), 
     actions:{
         async createMetallurgy(id:number, item: itemsInterface){
@@ -44,12 +47,13 @@ export const useMetallurgy = defineStore('metallurgy', {
         async showAllMelorryId(id: number) {
             console.log(id);
             
-            const {data, error} = await useFetch<itemsInterface[]>(`metallurgy/list/${id}`, {
+            const {data, error} = await useFetch<itemsID[]>(`metallurgy/list/${id}`, {
                 method: 'get', 
                 baseURL: useRuntimeConfig().public.backnend
                })
                if (error.value){
                 console.log(error.value);
+                this.all = []
                }
                if (data.value){
                 this.all = data.value
