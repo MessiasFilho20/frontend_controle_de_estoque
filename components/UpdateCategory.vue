@@ -35,12 +35,6 @@
 
 const use_catego = useCategory()
 
-const categ  =  ref <categoryInterface>({
-  name: '', 
-  description: ''
-})
- 
-
 const updateCategory = async () =>{
     use_catego.updateCategory(useModal().idCategory, {
       name: use_catego.category.name, 
