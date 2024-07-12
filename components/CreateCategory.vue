@@ -23,9 +23,12 @@
           <span>Descrição</span>
           <input  v-model="category.description" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <div class="mt-2 w-full">
-            <div  @click="createCategory()"  class=" bg-blue-950 rounded-sm active:scale-95 w-full flex justify-center ">
-             <span class="uppercase text-gray-200 font-bold">Criar</span>
-            </div>
+            <button :disabled="btncreate" @click="createCategory()"  class="w-full">
+              <div   class=" bg-blue-950 rounded-sm active:scale-95 w-full flex justify-center ">
+               <span class="uppercase text-gray-200 font-bold">Criar</span>
+              </div>
+
+            </button>
 
           </div>
         </div>
@@ -34,21 +37,11 @@
       <div class=" flex flex-col">
         <span class="font-semibold">Editar categorias</span>
         <div class="grid">
-          <div class="overflow-x-auto whitespace-nowrap ">
-          <div class=" inline-block px-2  " v-for="cate in useCategory().categories">
-            <div class="border rounded-md p-1 shadow-md bg-slate-100  flex space-x-3 items-center mb-3">
-              <span class="font-semibold pl-1">{{ cate.name }}</span>
-              <div class="flex space-x-2 items-center  ">
-                <button :disabled="btnDelete" @click="DeleteCategory(cate.id)" class="border rounded-md bg-red-400 active:scale-95">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6z"/></svg>
-                </button>
-                <button @click="updateCategory()" class="border rounded-md bg-blue-300 active:scale-95">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M8.707 19.707L18 10.414L13.586 6l-9.293 9.293a1.003 1.003 0 0 0-.263.464L3 21l5.242-1.03c.176-.044.337-.135.465-.263M21 7.414a2 2 0 0 0 0-2.828L19.414 3a2 2 0 0 0-2.828 0L15 4.586L19.414 9z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+         <button @click="navegateToPage('categories')" class="flex justify-center items-center space-x-3 bg-blue-950 rounded-sm active:scale-95">
+
+          <span class="uppercase font-bold text-gray-200">editar</span>
+          <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 256 256"><path  d="m228.24 59.76l-32-32a6 6 0 0 0-8.48 0l-96 96A6 6 0 0 0 90 128v32a6 6 0 0 0 6 6h32a6 6 0 0 0 4.24-1.76l96-96a6 6 0 0 0 0-8.48M125.51 154H102v-23.51l66-66L191.51 88ZM200 79.51L176.49 56L192 40.49L215.51 64ZM222 128v80a14 14 0 0 1-14 14H48a14 14 0 0 1-14-14V48a14 14 0 0 1 14-14h80a6 6 0 0 1 0 12H48a2 2 0 0 0-2 2v160a2 2 0 0 0 2 2h160a2 2 0 0 0 2-2v-80a6 6 0 0 1 12 0"/></svg>
+         </button>
         </div>
       </div>
  
@@ -60,28 +53,26 @@
 <script lang="ts" setup>
 const use_category = useCategory()
 
-const btnDelete = ref(false)
+const btncreate = ref(false)
 
 const category = ref<categoryInterface>({
   name : '', 
   description: ''
 })
 
-const updateCategory = async ( ) =>{
-  useModal().updateCategory = true
-}
+const navegateToPage = (page: string) =>{
 
-const DeleteCategory = async (id: number) =>{
- 
- btnDelete.value = true 
-  await use_category.deleteCategory(id)
-  btnDelete.value = false
+  navigateTo({
+    name: page
+  })
+  useModal().category = false
 }
-
 
 const createCategory = async () => {
+    btncreate.value = true
     await use_category.createCategory({name:category.value.name, description: category.value.description})
-}
+    btncreate.value = false
+  }
 
 </script>
 

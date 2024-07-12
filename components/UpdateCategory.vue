@@ -14,12 +14,16 @@
       </DialogHeader>
       <div class="flex items-center space-x-2">
         <div class="grid flex-1 gap-2">
+          <span>Nome</span>
+          <input v-model="use_catego.category.name" class="pl-1 bg-gray-400 rounded-sm" type="text">
           <span>Descrição</span>
+          <input v-model="use_catego.category.description" class="pl-1 bg-gray-400 rounded-sm" type="text">
       </div>
+      
     </div>
     <DialogFooter class="sm:justify-start">
         
-        <Button @click="" size="sm" class="px-3 active:scale-95">
+        <Button @click="updateCategory()" size="sm" class="px-3 active:scale-95">
          <span>OK</span>
         </Button>
       </DialogFooter>
@@ -27,8 +31,22 @@
   </Dialog>
   </div>
 </template>
-
 <script lang="ts" setup>
+
+const use_catego = useCategory()
+
+const categ  =  ref <categoryInterface>({
+  name: '', 
+  description: ''
+})
+ 
+
+const updateCategory = async () =>{
+    use_catego.updateCategory(useModal().idCategory, {
+      name: use_catego.category.name, 
+      description: use_catego.category.description
+    })
+}
 
 </script>
 

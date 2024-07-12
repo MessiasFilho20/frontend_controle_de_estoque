@@ -16,10 +16,16 @@
           Descrição
         </TableHead>
         <TableHead class="">
-          Quantidade
+          <div class="flex justify-center">
+            <span>
+              Quantidade
+            </span>
+          </div>
         </TableHead>
         <TableHead class="">
-          Unidade
+          <div class="flex justify-center">
+            <span> Unidade </span>
+          </div>
         </TableHead>
         <TableHead class="whitespace-nowrap">
           Q-Emergencia
@@ -30,15 +36,15 @@
       </TableRow>
     </TableHeader>
     <TableBody>
-      <TableRow  v-for=" items in useMetallurgy().all">
-        <TableCell class="font-medium flex justify-center">
-          <span class="whitespace-nowrap">{{ items.id }}</span>
+      <TableRow  v-for=" (items , index ) in useMetallurgy().all" >
+        <TableCell class="font-medium flex justify-start">
+          <span class="whitespace-nowrap">{{ index }}</span>
         </TableCell>
         <TableCell>
           <span class="whitespace-nowrap">{{ items.descricao }}</span>
         </TableCell>
         <TableCell>
-          <span class="whitespace-nowrap">{{ items.quantidade }}</span>
+          <span class="whitespace-nowrap flex justify-center">{{ items.quantidade }}</span>
         </TableCell>
         <TableCell>
           <span class="whitespace-nowrap">{{ items.unidade }}</span>

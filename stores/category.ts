@@ -60,6 +60,32 @@ export const useCategory = defineStore('category', {
                 this.getAllCategoryes()
                 
             }
+        },
+        async getCategoryId(id:number){
+            const {data , error  } = await useFetch<categoryInterface>(`category/show/${id}`, {
+                method: 'get',
+                baseURL: useRuntimeConfig().public.backnend, 
+            })
+            if (error.value){
+                console.log(error.value);
+                
+            }
+            if (data.value){
+                this.category = data.value
+            }
+        }, 
+        async updateCategory(id: number , category: categoryInterface){
+            const {data, error }  = await useFetch(`category/update/${id}`,{
+                method: 'put', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                body: {...category}
+            })
+            if (error.value){
+                console.log(error.value);
+            }
+            if (data.value){
+                
+            }
         }
     }
 })
