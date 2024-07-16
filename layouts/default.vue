@@ -3,8 +3,8 @@
         <header>
             <div class="w-full h-10 bg-slate-500 flex items-center">
                 <div class="w-full flex justify-end space-x-3 p-2">
-                    <button class="bg-blue-400 rounded-sm px-3 shadow-lg active:scale-95">Cadastro</button>
-                    <button class="bg-green-500 rounded-sm px-3 shadow-lg active:scale-95">login</button>
+                    <button @click="navigatepage('register')" class="bg-blue-400 rounded-sm px-3 shadow-lg active:scale-95">Cadastro</button>
+                    <button @click="navigatepage('login')" class="bg-green-500 rounded-sm px-3 shadow-lg active:scale-95">login</button>
                 </div>
             </div>
         </header>
@@ -24,6 +24,11 @@ onMounted(async () => {
     await use_category.getAllCategoryes()
 })
 
+const navigatepage = (name: string) =>{
+    navigateTo({
+        name: name
+    })
+} 
 
 </script>
 

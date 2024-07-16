@@ -34,6 +34,7 @@ export const useCategory = defineStore('category', {
             const {data , error , pending } = await useFetch<showCategory[]>('category/all', {
                 method: 'get',
                 baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}
             })
             if (error.value){
                 console.log(error.value.data);
