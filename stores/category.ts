@@ -18,6 +18,7 @@ export const useCategory = defineStore('category', {
             const {data , error} = await useFetch<categoryInterface>('category/create', {
                 method: 'post',
                 baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`},
                 body:{...category}
             })
             if (error.value){

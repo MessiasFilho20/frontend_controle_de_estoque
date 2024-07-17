@@ -55,6 +55,18 @@
 definePageMeta({
     name:'categories'
 })
+
+onMounted(async () => {
+  const router = useRouter()
+  const {role} = useUser().user
+  console.log(role);
+  
+  if ( role != 'admin'){
+    router.push('/404')
+  }
+})
+
+
 const use_category = useCategory()
 
 const deleteCategoryes = async (id: number) =>{
@@ -66,6 +78,8 @@ const editCategoryes = async (id: number) =>{
    useModal().idCategory = id
    await use_category.getCategoryId(id)
 } 
+
+
 </script>
 
 <style>
