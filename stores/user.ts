@@ -1,4 +1,3 @@
-import { Body } from "#build/components"
 
 export interface userInterface{
     nome: string, 
@@ -68,7 +67,6 @@ export const useUser = defineStore('userModal',{
             }
             if (data.value){
                 this.user = data.value
-                console.log(this.user);
             }
             if (pending.value){
                 this.getuser()
