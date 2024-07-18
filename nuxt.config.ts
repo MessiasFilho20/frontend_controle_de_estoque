@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     // modules: ['navigation', 'pagination'], // all modules are imported by default
   },
   runtimeConfig:{
-    public: {backnend: 'http://192.168.1.10:3001/'}
+    public: {backnend: 'http://192.168.1.2:3001/'}
   }, 
   shadcn: {
     /**

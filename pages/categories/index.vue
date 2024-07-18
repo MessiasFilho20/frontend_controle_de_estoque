@@ -56,12 +56,16 @@ definePageMeta({
     name:'categories'
 })
 
+
+const use_user = useUser()
+const router = useRouter()
+
+
+
 onMounted(async () => {
-  const router = useRouter()
-  const {role} = useUser().user
-  console.log(role);
-  
-  if ( role != 'admin'){
+  await use_user.getuser()
+
+  if ( use_user.user.role != 'admin'){
     router.push('/404')
   }
 })

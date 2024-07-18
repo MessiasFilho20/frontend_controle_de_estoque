@@ -27,12 +27,25 @@
             <span> Unidade </span>
           </div>
         </TableHead>
-        <TableHead class="whitespace-nowrap">
+        <TableHead class=" whitespace-nowrap">
           Q-Emergencia
         </TableHead>
         <TableHead class="">
-          Unid.
+          <div class="flex justify-center">
+            <span> 
+              Fornecedor
+            </span> 
+          </div>
         </TableHead>
+
+        <TableHead class="">
+          <div class="flex justify-center">
+            <span class="uppercase"> 
+                inserido
+            </span> 
+          </div>
+        </TableHead>
+
       </TableRow>
     </TableHeader>
     <TableBody>
@@ -52,7 +65,7 @@
         <TableCell>
           <span class="whitespace-nowrap">{{ items.quanti_emerg }}</span>
         </TableCell>
-        <TableCell>
+        <TableCell class="flex justify-center ">
           <span class="whitespace-nowrap">{{ items.fornecedor }}</span>
         </TableCell>
       </TableRow>

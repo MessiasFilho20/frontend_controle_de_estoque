@@ -56,7 +56,10 @@ export const useUser = defineStore('userModal',{
            
         },
         async getuser(){
-            const {data, error, pending }  = await useFetch<userId>('user/getuser', {
+            interface user {
+                data: userId
+            }
+            const {data, error, pending }  = await useFetch<user>('user/getuser', {
                 method: 'get', 
                 baseURL: useRuntimeConfig().public.backnend, 
                 headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}
@@ -66,7 +69,10 @@ export const useUser = defineStore('userModal',{
                 console.log(error.value.data);
             }
             if (data.value){
-                this.user = data.value
+                
+                const {data: userId} = data.value
+                this.user = userId
+            
             }
             if (pending.value){
                 this.getuser()

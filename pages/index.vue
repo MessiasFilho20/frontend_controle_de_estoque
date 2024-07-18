@@ -19,9 +19,6 @@
      <div >  
       <TableItems/> 
     </div>
-   
-
-    
    </div>
   </div>
 </template>

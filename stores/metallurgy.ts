@@ -4,10 +4,16 @@ export interface itemsInterface{
     unidade: number, 
     img: string | null, 
     fornecedor: string, 
-    descricao: string
+    descricao: string,
+    
+
+
 }
 export interface itemsID extends itemsInterface {
     id: number
+    created_at: string, 
+    updated_at: string
+
 }
 
 export const useMetallurgy = defineStore('metallurgy', {
@@ -39,7 +45,8 @@ export const useMetallurgy = defineStore('metallurgy', {
             console.log(error.value);
            }
            if (data.value){
-
+            console.log(data.value);
+            
            }
 
         },
