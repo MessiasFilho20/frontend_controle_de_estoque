@@ -12,12 +12,15 @@
             <slot/>
         </div>
     </div>
+    <RemoveItem/>
     <CreateCategory/>
     <CreateItems/>
     <UpdateCategory/>
 </template>
 
 <script lang="ts" setup>
+
+
 const use_category = useCategory()
 
 onMounted(async () => {

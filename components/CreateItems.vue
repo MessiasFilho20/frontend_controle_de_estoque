@@ -21,9 +21,9 @@
           <span>imagem</span>
           <input  v-model="items.img" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <span>Quantidade</span>
-          <input  v-model="items.quanti_emerg" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
-          <span>Quantidade de emergencia</span>
           <input  v-model="items.quantidade" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
+          <span> Quantidade de emergencia</span>
+          <input v-model="items.quanti_emerg" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
         </div>
     </div>
     <DialogFooter class="sm:justify-start">

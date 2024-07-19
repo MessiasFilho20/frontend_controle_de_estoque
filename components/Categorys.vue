@@ -24,7 +24,6 @@ const createItems = () =>{
 }
 
 const clicCategory = async (id: number, descr: string) =>{
-  console.log(id);
   
   use_modal.idCategory = id 
   use_modal.name_category = descr
