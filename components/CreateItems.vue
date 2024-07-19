@@ -24,8 +24,6 @@
           <input  v-model="items.quanti_emerg" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <span>Quantidade de emergencia</span>
           <input  v-model="items.quantidade" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
-          <span>Unidade</span>
-          <input  v-model="items.unidade" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
         </div>
     </div>
     <DialogFooter class="sm:justify-start">
@@ -47,8 +45,6 @@ const items = ref<itemsInterface>({
     img: '', 
     quanti_emerg: 0,
     quantidade: 0, 
-    unidade: 0, 
-
 })
 
 const createItems = async () =>{
