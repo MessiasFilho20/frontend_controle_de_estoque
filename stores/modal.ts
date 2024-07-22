@@ -7,6 +7,7 @@ export const useModal = defineStore('modal', {
         createItem: false, 
         updateCategory: false, 
         removeItem: false,
-        informItems: {  name: '',  quantidade: '' ,itemId: 0}
+        informItems: {  name: '',  quantidade: '' ,itemId: ''},
+        menuadmin: false,
     })
 })

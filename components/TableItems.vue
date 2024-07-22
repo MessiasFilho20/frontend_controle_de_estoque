@@ -5,7 +5,9 @@
    
     </div>
     <Table v-if="useMetallurgy().all">
-      <TableCaption></TableCaption>
+      <TableCaption>
+      
+      </TableCaption>
       
       <TableHeader >
         <TableRow>

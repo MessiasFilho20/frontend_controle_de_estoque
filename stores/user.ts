@@ -20,7 +20,8 @@ export interface userLogin {
 
 export const useUser = defineStore('userModal',{
     state: () =>({
-        user: {} as userId
+        user: {} as userId,
+        users: [] as userInterface[]
     }), 
     actions: {
         async createUser(user : userInterface){
@@ -76,6 +77,36 @@ export const useUser = defineStore('userModal',{
             }
             if (pending.value){
                 this.getuser()
+            }
+        },
+
+        async getUserById(id: number) {
+            const {data, error }  = await useFetch(`user/get/${id}`, {
+                method: 'get', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}
+            })
+            if (error.value){
+                console.log(error.value.data);
+            }
+            if (data.value){
+                
+            }
+
+        }, 
+
+        async getAllUsers(){
+            const {data, error}  = await useFetch<userInterface[]>(`user/all`, {
+                method: 'get', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}
+            })
+
+            if (error.value){
+                console.log(error.value.data);
+            }
+            if (data.value){
+                this.users = data.value
             }
         }
     }

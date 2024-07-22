@@ -12,6 +12,7 @@
             <slot/>
         </div>
     </div>
+    <MenuAdmin/>
     <RemoveItem/>
     <CreateCategory/>
     <CreateItems/>
@@ -19,13 +20,15 @@
 </template>
 
 <script lang="ts" setup>
-
-
 const use_category = useCategory()
 
 onMounted(async () => {
     await use_category.getAllCategoryes()
 })
+
+const color = useColorMode()
+
+color.value = 'dark'
 
 const navigatepage = (name: string) =>{
     navigateTo({

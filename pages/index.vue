@@ -33,7 +33,7 @@ definePageMeta({
 })
 
 const clickcreate = () =>{
-  use_modal.category = true
+  use_modal.menuadmin = true
 }
 
 onMounted( async () =>{

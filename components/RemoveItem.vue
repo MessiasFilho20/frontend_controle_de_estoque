@@ -54,13 +54,15 @@
 const unidades = ref(0)
 const use_order = useOrder()
 const use_Modal = useModal()
+
 const clickConfirm = async () =>{
    await use_order.createOrder({
     categoryID: use_Modal.idCategory, 
     itemID: Number(use_Modal.informItems.itemId),
     unidade: Number(unidades.value)
    })
-    
+    unidades.value = 0
+    useModal().removeItem = false    
 }
 
 </script>

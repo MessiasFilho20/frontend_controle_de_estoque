@@ -2,9 +2,12 @@
   <div class="flex w-full justify-center items-center my-1">
     <div class=" overflow-x-auto whitespace-nowrap custom-scrollbar ">
       <div class="inline-block px-2 " v-for=" cat  in use_category.categories ">
-      <div  @click="clicCategory(cat.id, cat.description)" class="min-w-[10rem] mb-3 cursor-pointer flex items-center justify-between border rounded-sm" >
-        <div class="pl-1 flex justify-center bg-slate-200  w-full  rounded-sm  active:scale-95"> <span class="font-semibold"> {{ cat.name }} </span> </div>
+      <div  @click="clicCategory(cat.id, cat.description)" class="min-w-[10rem] mb-3 cursor-pointer flex items-center justify-between space-x-3 rounded-sm" >
+        <div class="pl-1 flex justify-center bg-slate-200  w-full  rounded-sm  active:scale-95 px-2"> <span class="font-semibold"> {{ cat.name }} </span> </div>
        
+        <button @click="createItems()" class="border rounded-sm active:scale-95">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" viewBox="0 0 24 24"><path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"/></svg>
+        </button>
       </div>
     </div>
     </div>

@@ -72,6 +72,7 @@ const createCategory = async () => {
     btncreate.value = true
     await use_category.createCategory({name:category.value.name, description: category.value.description})
     btncreate.value = false
+    
   }
 
 </script>

@@ -33,7 +33,7 @@ export const useMetallurgy = defineStore('metallurgy', {
             console.log(error.value);
            }
            if(data.value){
-
+            
            }
         },
         async getMetallurgy(id: number){
