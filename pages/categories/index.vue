@@ -3,9 +3,9 @@
     <Table >
       <TableCaption></TableCaption>
       
-      <TableHeader class="bg-slate-100" >
-        <TableRow class=" bg-slate-200 ">
-          <TableHead class="w-16 border flex items-center justify-center">
+      <TableHeader class="" >
+        <TableRow class="  ">
+          <TableHead class="w-16  flex items-center justify-center">
             <span>
               Items
             </span>

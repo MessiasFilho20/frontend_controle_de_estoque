@@ -3,7 +3,7 @@
     <div class=" overflow-x-auto whitespace-nowrap custom-scrollbar ">
       <div class="inline-block px-2 " v-for=" cat  in use_category.categories ">
       <div  @click="clicCategory(cat.id, cat.description)" class="min-w-[10rem] mb-3 cursor-pointer flex items-center justify-between border rounded-sm" >
-        <div class="pl-1 flex justify-center bg-slate-200  w-full  rounded-sm  active:scale-95"> <span class="font-semibold"> {{ cat.name }} </span> </div>
+        <div class="pl-1 flex justify-center bg-[var(--orange)]  w-full  rounded-sm  active:scale-95"> <span class="font-semibold"> {{ cat.name }} </span> </div>
        
       </div>
     </div>
@@ -33,28 +33,8 @@ const clicCategory = async (id: number, descr: string) =>{
 
 </script>
 
-<style scoped>
+<style >
 
 
-.custom-scrollbar::-webkit-scrollbar {
-  height:6px; 
-  width: 5px; 
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-  width: 5px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 6px; 
-  width: 5px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555;
-  width: 5px;
-}
 
 </style>
