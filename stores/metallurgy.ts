@@ -5,9 +5,6 @@ export interface itemsInterface{
     img: string | null, 
     fornecedor: string, 
     descricao: string,
-    
-
-
 }
 export interface itemsID extends itemsInterface {
     id: number
@@ -26,14 +23,11 @@ export const useMetallurgy = defineStore('metallurgy', {
                 method: 'post', 
                 baseURL: useRuntimeConfig().public.backnend, 
                 body: {...item}
-
            })
-
            if (error.value){
             console.log(error.value);
            }
            if(data.value){
-            
            }
         },
         async getMetallurgy(id: number){
@@ -46,14 +40,10 @@ export const useMetallurgy = defineStore('metallurgy', {
            }
            if (data.value){
             console.log(data.value);
-            
            }
-
         },
 
         async showAllMelorryId(id: number) {
-            console.log(id);
-            
             const {data, error} = await useFetch<itemsID[]>(`metallurgy/list/${id}`, {
                 method: 'get', 
                 baseURL: useRuntimeConfig().public.backnend
