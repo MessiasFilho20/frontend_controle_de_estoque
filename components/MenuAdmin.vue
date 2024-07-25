@@ -36,13 +36,13 @@
                         <span class="uppercase font-semibold">usuarios</span>       
                     </div>
                 </Button>
-                <Button @click="clickItems('itemspage')" class="p-2 active:scale-95 bg-[var(--orange)] space-x-3 rounded-sm shadow-md flex items-center justify-center">
+                <Button @click="clickItems('orders')" class="p-2 active:scale-95 bg-[var(--orange)] space-x-3 rounded-sm shadow-md flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="17" x="5" y="4" rx="2"/><path stroke-linecap="round" d="M9 9h6m-6 4h6m-6 4h4"/></g></svg>
                   <div class="w-full">
                         <span class="uppercase font-semibold">pedidos</span>       
                     </div>
                 </Button>
-                <Button @click="clickItems('itemspage')" class="p-2 active:scale-95 bg-[var(--orange)] space-x-3 rounded-sm shadow-md flex items-center justify-center">
+                <Button @click="clickItems('create_order')" class="p-2 active:scale-95 bg-[var(--orange)] space-x-3 rounded-sm shadow-md flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="0 0 24 24"><path fill="currentColor" d="M10 13H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1m-1 6H5v-4h4ZM20 3h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-1 6h-4V5h4Zm1 7h-2v-2a1 1 0 0 0-2 0v2h-2a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1M9 9H5V5h4Z"/></svg>
                   <div class="w-full">
                         <span class="uppercase font-semibold">

@@ -4,8 +4,27 @@ export interface orderInterface {
     unidade: number
 }
 
+export interface getOrdersInterface {
+    id: number,
+    userName: string ,
+    userCpf: string,
+    itemID: number,
+    item_descricao: string,
+    item_fornecedor: string,
+    category_description: string,
+    category_name: string,
+    unidade: number,
+    role: string,
+    quantidade: number,
+    created_at: string,
+    updated_at: string
+}
+
 export const useOrder = defineStore('order',{
-    state: () =>({}),
+    state: () =>({
+        data: {} as getOrdersInterface, 
+        orders: [] as getOrdersInterface[]
+    }),
     actions:{
        async createOrder(order: orderInterface){
             const {data, error} = await useFetch('order/create',{
@@ -22,9 +41,25 @@ export const useOrder = defineStore('order',{
 
                 await useMetallurgy().showAllMelorryId(order.categoryID)
             }
-        }
+        }, 
+        async getAllOrders(){
+            interface orders {
+                datas: []
+            }
+            const {data, error} = await useFetch<orders>('order/all',{
+                method: 'get', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization:`Bearer ${localStorage.getItem('login')}`}
+            })
+            if(error.value){
 
-        
+            }
+            if (data.value){
+                this.orders = data.value.datas
+                
+            }
+            
+        }
 
     }
 })
