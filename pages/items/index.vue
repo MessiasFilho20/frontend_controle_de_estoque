@@ -21,7 +21,7 @@
   })
     
   onMounted( async () =>{
-    console.log('oi');
+    use_modal.menuadmin = false
     
     await useCategory().getAllCategoryes()
   })

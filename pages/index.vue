@@ -16,17 +16,11 @@
 <script lang="ts" setup>
 const use_modal = useModal()
 
-
-
 definePageMeta({
   name: 'index'
 })
 
-
-
 onMounted( async () =>{
-  console.log('oi');
-  
   await useCategory().getAllCategoryes()
 })
 

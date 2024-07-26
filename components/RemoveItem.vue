@@ -54,8 +54,22 @@
 const unidades = ref(0)
 const use_order = useOrder()
 const use_Modal = useModal()
-
+const use_user = useUser()
 const clickConfirm = async () =>{
+
+    console.log(use_Modal.idCategory, Number(use_Modal.informItems.itemId),  Number(unidades.value), use_user.user.nome, use_user.user.cpf  );
+    
+
+    if (use_user.user.role == 'admin'){
+       await use_order.createOrederAdmin({
+        categoryID: use_Modal.idCategory, 
+        itemID: Number(use_Modal.informItems.itemId),
+        unidade: Number(unidades.value), 
+        userName: use_user.userID.nome, 
+        userCPF: use_user.userID.cpf
+       })
+    }
+
    await use_order.createOrder({
     categoryID: use_Modal.idCategory, 
     itemID: Number(use_Modal.informItems.itemId),

@@ -137,6 +137,7 @@ definePageMeta({
 
 
 onMounted(async () =>{
+    useModal().menuadmin = false
     await use_orders.getAllOrders() 
 })
 </script>

@@ -7,6 +7,7 @@ export interface userInterface{
     passwordconfirm: string, 
 }
 export interface userInterfaceGetAll{
+    id: number
     nome: string, 
     gmail: string,
     cpf: string, 
@@ -26,7 +27,8 @@ export interface userLogin {
 
 export const useUser = defineStore('userModal',{
     state: () =>({
-        user: {} as userId,
+        user: {} as userInterfaceGetAll ,
+        userID: {} as userInterfaceGetAll ,
         users: [] as userInterfaceGetAll[]
     }), 
     actions: {
@@ -64,7 +66,7 @@ export const useUser = defineStore('userModal',{
         },
         async getuser(){
             interface user {
-                data: userId
+                data: userInterfaceGetAll
             }
             const {data, error, pending }  = await useFetch<user>('user/getuser', {
                 method: 'get', 
@@ -87,7 +89,11 @@ export const useUser = defineStore('userModal',{
         },
 
         async getUserById(id: number) {
-            const {data, error }  = await useFetch(`user/get/${id}`, {
+            interface userData {
+                data: userInterfaceGetAll
+            }
+
+            const {data, error }  = await useFetch<userData>(`user/get/${id}`, {
                 method: 'get', 
                 baseURL: useRuntimeConfig().public.backnend, 
                 headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}
@@ -96,7 +102,7 @@ export const useUser = defineStore('userModal',{
                 console.log(error.value.data);
             }
             if (data.value){
-                
+                this.userID = data.value.data
             }
 
         }, 

@@ -20,6 +20,11 @@ export interface getOrdersInterface {
     updated_at: string
 }
 
+export interface orderAdmininterface extends orderInterface {
+    userName: string, 
+    userCPF: string
+}
+
 export const useOrder = defineStore('order',{
     state: () =>({
         data: {} as getOrdersInterface, 
@@ -42,6 +47,23 @@ export const useOrder = defineStore('order',{
                 await useMetallurgy().showAllMelorryId(order.categoryID)
             }
         }, 
+
+        async createOrederAdmin( orderAdmin: orderAdmininterface ){
+            const {data, error} = await useFetch('order/create-admin',{
+                
+                method: 'post', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                body: {...orderAdmin},
+                headers: {authorization:`bearer ${localStorage.getItem('login')}`},
+            })
+            if (error.value){
+                console.log(error.value);
+            }
+            if (data.value){
+
+            }
+        }, 
+
         async getAllOrders(){
             interface orders {
                 datas: []

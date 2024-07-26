@@ -84,6 +84,7 @@ definePageMeta({
 })
 
 onMounted(async () =>{
+    useModal().menuadmin = false
     await allusers.getAllUsers() 
 })
 
