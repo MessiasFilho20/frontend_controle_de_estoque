@@ -48,7 +48,13 @@ const items = ref<itemsInterface>({
 })
 
 const createItems = async () =>{
-    await use_metallury.createMetallurgy(useModal().idCategory, items.value )
+    await use_metallury.createMetallurgy(useModal().idCategory, items.value= {
+      descricao: items.value.descricao, 
+      fornecedor: items.value.fornecedor, 
+      img: items.value.img, 
+      quanti_emerg: Number(items.value.quanti_emerg), 
+      quantidade: Number(items.value.quantidade), 
+    } )
 
     items.value = {descricao: '', fornecedor: '', img: '', quanti_emerg: 0, quantidade: 0}
 

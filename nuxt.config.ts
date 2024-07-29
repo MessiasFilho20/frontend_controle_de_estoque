@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt",'@vueuse/nuxt','@pinia/nuxt', 'nuxt-swiper'],
+  build:{
+    transpile:['vue-sonner']
+  }, 
   swiper: {
     // Swiper options
     //----------------------
