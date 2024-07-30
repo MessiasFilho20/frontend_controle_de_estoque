@@ -77,11 +77,7 @@ export const useOrder = defineStore('order',{
 
             }
             if (data.value){
-                this.orders = data.value.datas.map((data: getOrdersInterface) => ({
-                    ...data,
-                    created_at: useFormateDate(String(data.created_at)),
-                    updated_at: useFormateDate(data.updated_at),
-                }) )
+                this.orders = data.value.datas
                 
             }
             
