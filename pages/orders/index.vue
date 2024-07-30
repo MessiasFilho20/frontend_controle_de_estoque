@@ -1,8 +1,15 @@
 <template>
   <div class="">
     <Searche/>
-    <div class="w-full pl-2">
-      <span class="uppercase font-semibold">Pedidos</span>
+    <div class="w-full px-2">
+      <div class="flex justify-between">
+        <span class="uppercase font-semibold">Pedidos</span>
+        <div>
+          <button @click="dowloadxls()" class="bg-[var(--orange)] rounded-sm active:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
     <Table v-if="useMetallurgy().all" class="custom-scrollbar" >
       <TableCaption>
@@ -114,7 +121,6 @@
         <TableCell class="">
           <span class="whitespace-nowrap"> {{ useFormateDate().setDate(order.created_at)  }} </span>
         </TableCell>
-     
         <!-- <TableCell class="">
           <button class="flex justify-center w-full p-2 active:scale-95 rounded-md">
             <svg class="" xmlns="http://www.w3.org/2000/svg" width="1.9em" height="1.9em" viewBox="0 0 20 20"><path fill="currentColor" d="M12.75 17.5a.75.75 0 0 0 0-1.5H6.5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6.25a.75.75 0 0 0 0-1.5H6.5A3.5 3.5 0 0 0 3 6v8a3.5 3.5 0 0 0 3.5 3.5zm.991-11.301a.75.75 0 0 1 1.06.042l3 3.25a.75.75 0 0 1 0 1.018l-3 3.25A.75.75 0 1 1 13.7 12.74l1.838-1.991H7.75a.75.75 0 0 1 0-1.5h7.787l-1.838-1.991a.75.75 0 0 1 .042-1.06"/></svg>
@@ -129,12 +135,20 @@
 
 <script lang="ts" setup>
 const use_orders = useOrder()
-
+import * as XLSX from 'xlsx'
+import {saveAs} from 'file-saver'
 definePageMeta({
     name: 'orders'
 })
 
+const dowloadxls = () =>{
+  const ws = XLSX.utils.json_to_sheet(use_orders.orders)
+  const wb = XLSX.utils.book_new()
+  XLSX.utils.book_append_sheet(wb, ws, 'sheet1')
 
+  const wbout = XLSX.write(wb,{bookType:'xlsx', type:'array'})
+  saveAs(new Blob([wbout],{type: 'application/octet-stream'}), 'data.xlsx')
+}
 
 onMounted(async () =>{
     useModal().menuadmin = false
