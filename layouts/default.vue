@@ -17,6 +17,7 @@
     <CreateCategory/>
     <CreateItems/>
     <UpdateCategory/>
+    <Toaster/>
 </template>
 
 <script lang="ts" setup>

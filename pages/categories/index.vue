@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full h-full flex justify-center items-center ">
+  <div class="w-full h-full flex flex-col ">
+    <Searche/>
     <Table >
       <TableCaption></TableCaption>
       
@@ -59,12 +60,12 @@ definePageMeta({
 
 const use_user = useUser()
 const router = useRouter()
-
+const use_alerts = useAlerts()
 
 
 onMounted(async () => {
   await use_user.getuser()
-
+  
   if ( use_user.user.role != 'admin'){
     router.push('/404')
   }
@@ -74,7 +75,8 @@ onMounted(async () => {
 const use_category = useCategory()
 
 const deleteCategoryes = async (id: number) =>{
-  await use_category.deleteCategory(id)
+  use_alerts.alertDeleteCategory(id)
+
 }
 
 const editCategoryes = async (id: number) =>{

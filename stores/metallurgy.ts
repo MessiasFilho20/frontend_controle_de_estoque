@@ -24,7 +24,7 @@ export const useMetallurgy = defineStore('metallurgy', {
                 body: {...item}
            })
            if (error.value){
-            console.log(error.value);
+            toastModal().createToast('Error', String(error.value.data.message),'yellow',"warning")
            }
            if(data.value){
            }
@@ -49,6 +49,7 @@ export const useMetallurgy = defineStore('metallurgy', {
                })
                if (error.value){
                 this.all = []
+                toastModal().createToast('Error','não há items para categoria selecionada',"yellow","warning")
                }
                if (data.value){
                 this.all = data.value

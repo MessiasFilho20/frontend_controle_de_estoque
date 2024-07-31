@@ -48,13 +48,11 @@
 <script lang="ts" setup>
 import type { userLogin } from '~/stores/user';
 
-
 const disab = ref(false)
 
 const login = ref<userLogin>({
   data: '', password: ''
 })
-
 
 const navigatepage = (name: string) =>{
     useModal().login = false

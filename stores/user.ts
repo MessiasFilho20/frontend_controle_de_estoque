@@ -24,7 +24,6 @@ export interface userLogin {
     password: string 
 }
 
-
 export const useUser = defineStore('userModal',{
     state: () =>({
         user: {} as userInterfaceGetAll ,
@@ -32,6 +31,7 @@ export const useUser = defineStore('userModal',{
         users: [] as userInterfaceGetAll[]
     }), 
     actions: {
+
         async createUser(user : userInterface){
             const {data, error} = await useFetch('user/create',{
                 method: 'post',
@@ -39,20 +39,21 @@ export const useUser = defineStore('userModal',{
                 body: {...user}
             })
             if (error.value){
-
+                toastModal().createToast('Error',String(error.value.data.message),'yellow',"info")
             }
             if (data.value){
                 localStorage.setItem('login', String(data.value))
             }
         },
-        
         async loginUser(user: userLogin){
             const {data, error} = await useFetch('user/login',{
                 method: 'post',
                 baseURL: useRuntimeConfig().public.backnend,
                 body: {...user}
             })
-            if (error.value) return console.log('erro',error.value);
+            if (error.value){
+                toastModal().createToast('Error',String(error.value.data.error),"red","error")
+            }
             
             if (data.value){
                 localStorage.setItem('login',String(data.value))
@@ -87,7 +88,6 @@ export const useUser = defineStore('userModal',{
                 this.getuser()
             }
         },
-
         async getUserById(id: number) {
             interface userData {
                 data: userInterfaceGetAll
@@ -106,7 +106,6 @@ export const useUser = defineStore('userModal',{
             }
 
         }, 
-
         async getAllUsers(){
             interface allusers{
                 datas: userInterfaceGetAll[] 
@@ -123,6 +122,19 @@ export const useUser = defineStore('userModal',{
             if (data.value){
                 this.users = data.value.datas
         
+            }
+        },
+        async deleteUserById(id: number){
+            const {data, error} = await useFetch(`user/delete/${id}`, {
+                method: 'delete', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization:`Bearer ${localStorage.getItem('login')}`}
+            })
+            if (error.value){
+
+            }
+            if (data.value){
+                this.getAllUsers()
             }
         }
     }

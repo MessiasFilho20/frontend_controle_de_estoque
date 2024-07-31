@@ -26,9 +26,10 @@ export const toastModal = defineStore('toast', {
                 style: {background: bg || '#ff3658', 
                     fill: 'white', 
                     color: 'white', 
-                    border: 'none'}
-                
+                    border: 'none'},
+                    position: 'top-center'
             })
+            
         }
     }
 })
