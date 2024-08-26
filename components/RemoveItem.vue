@@ -29,7 +29,7 @@
                             </span>
                         </div>
                         <NumberField  v-model="unidades" :min="0">
-                            <Label for="unidades">Unidades</Label>
+                            <label for="unidades">Unidades</label>
                             <NumberFieldContent>
                             <NumberFieldDecrement />
                             <NumberFieldInput />
