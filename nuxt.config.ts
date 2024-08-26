@@ -2,9 +2,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt",'@vueuse/nuxt','@pinia/nuxt', 'nuxt-swiper'],
+  css: ['~/assets/css/tailwind.css'], 
   build:{
     transpile:['vue-sonner']
   }, 
+
   swiper: {
     // Swiper options
     //----------------------
@@ -13,7 +15,9 @@ export default defineNuxtConfig({
     // modules: ['navigation', 'pagination'], // all modules are imported by default
   },
   runtimeConfig:{
-    public: {backnend: 'https://back.ifsolucoes.site/'}
+    public: {backnend: 'http://localhost:3001/'}
+    // public: {backnend: 'https://back.ifsolucoes.site/'}
+
   }, 
   shadcn: {
     /**
