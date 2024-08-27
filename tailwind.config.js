@@ -10,7 +10,7 @@ module.exports = {
     "./app.vue",
     "./error.vue",
   ],
-
+  
   darkMode: ["class"],
   safelist: ["dark"],
   prefix: "",
