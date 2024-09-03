@@ -57,11 +57,9 @@ definePageMeta({
     name:'categories'
 })
 
-
 const use_user = useUser()
 const router = useRouter()
 const use_alerts = useAlerts()
-
 
 onMounted(async () => {
   await use_user.getuser()
@@ -70,7 +68,6 @@ onMounted(async () => {
     router.push('/404')
   }
 })
-
 
 const use_category = useCategory()
 
@@ -84,7 +81,6 @@ const editCategoryes = async (id: number) =>{
    useModal().idCategory = id
    await use_category.getCategoryId(id)
 } 
-
 
 </script>
 

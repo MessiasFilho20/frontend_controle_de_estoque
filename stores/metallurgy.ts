@@ -14,7 +14,8 @@ export interface itemsID extends itemsInterface {
 
 export const useMetallurgy = defineStore('metallurgy', {
     state: () =>({
-        all : [] as itemsID []
+        all : [] as itemsID [], 
+        item: {} as itemsInterface
     }), 
     actions:{
         async createMetallurgy(id:number, item: itemsInterface){
@@ -54,6 +55,10 @@ export const useMetallurgy = defineStore('metallurgy', {
                if (data.value){
                 this.all = data.value
                }
+        },
+
+        async getItemByIdCategory (itemdi:number, idcategory: number){
+            const {data, error} = await useFetch<itemsID>(``,{})
         }
     }
 
