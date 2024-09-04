@@ -1,13 +1,13 @@
 export interface itemsInterface{
+    id: number | null
     quantidade: number, 
     quanti_emerg: number, 
-   
     img: string | null, 
     fornecedor: string, 
     descricao: string,
 }
 export interface itemsID extends itemsInterface {
-    id: number
+    
     created_at: string, 
     updated_at: string
 }
