@@ -31,7 +31,7 @@ export const useMetallurgy = defineStore('metallurgy', {
            }
         },
         async getMetallurgy(id: number){
-           const {data, error} = await useFetch(`metallurgy/show/${id}`, {
+           const {data, error} = await useFetch<itemsInterface>(`metallurgy/show/${id}`, {
             method: 'get', 
             baseURL: useRuntimeConfig().public.backnend
            })
@@ -39,7 +39,7 @@ export const useMetallurgy = defineStore('metallurgy', {
             console.log(error.value);
            }
            if (data.value){
-            console.log(data.value);
+            this.item = data.value 
            }
         },
 
@@ -57,8 +57,21 @@ export const useMetallurgy = defineStore('metallurgy', {
                }
         },
 
-        async getItemByIdCategory (itemdi:number, idcategory: number){
-            const {data, error} = await useFetch<itemsID>(``,{})
+        async updateItemsMellury (itemid:number, item: itemsInterface ){
+            const {data, error} = await useFetch<itemsID>(`metallurgy/update/${itemid}`,{
+                method: 'put', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`},
+                body: {...item}
+            })
+            if (error.value){
+                console.log(error.value?.data);
+                
+            }
+            if (data.value){
+               this.showAllMelorryId(useModal().idCategory)
+                
+            }
         }
     }
 

@@ -3,6 +3,7 @@ export const useModal = defineStore('modal', {
         login: false,
         category: false,  
         idCategory: 0, 
+        idItem: 0,
         name_category: '',
         createItem: false, 
         editItems:false,
