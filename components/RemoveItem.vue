@@ -64,16 +64,20 @@ const clickConfirm = async () =>{
         unidade: Number(unidades.value), 
         userName: use_user.userID.nome, 
         userCPF: use_user.userID.cpf
+        
        })
+        unidades.value = 0
+        useModal().removeItem = false    
+       return
+    }else{
+        await use_order.createOrder({
+         categoryID: use_Modal.idCategory, 
+         itemID: Number(use_Modal.informItems.itemId),
+         unidade: Number(unidades.value)
+        })
+        unidades.value = 0
+        useModal().removeItem = false    
     }
-
-   await use_order.createOrder({
-    categoryID: use_Modal.idCategory, 
-    itemID: Number(use_Modal.informItems.itemId),
-    unidade: Number(unidades.value)
-   })
-    unidades.value = 0
-    useModal().removeItem = false    
 }
 
 </script>
