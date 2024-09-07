@@ -34,7 +34,7 @@ onMounted(async () => {
 
 const color = useColorMode()
 
-color.value = 'auto'
+color.value = 'dark'
 
 const navigatepage = (name: string) =>{
     navigateTo({
