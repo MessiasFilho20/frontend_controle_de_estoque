@@ -78,11 +78,7 @@
             <span class="uppercase whitespace-nowrap">Data do Pedido</span> 
           </div>
         </TableHead>        
-        <!-- <TableHead class="">
-          <div class="flex justify-center">
-            <span class="uppercase whitespace-nowrap"> Editar USuario </span> 
-          </div>
-        </TableHead> -->
+      
         
       </TableRow>
     </TableHeader>
