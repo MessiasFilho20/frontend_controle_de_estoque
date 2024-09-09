@@ -15,9 +15,7 @@
       
       <div class="flex items-center space-x-2">
         <div class="grid w-full">
-          <div>
-            <span class="font-semibold">Criar categoria</span>
-          </div>
+       
           <span>Nome</span>
           <input v-model="category.name" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <span>Descrição</span>
@@ -35,8 +33,8 @@
         </div>
 
       </div>
-      <div class=" flex flex-col">
-        <span class="font-semibold">Editar categorias</span>
+      <div class=" flex flex-col gap-2">
+        <span class="font-semibold border-b w-full">Editar categorias</span>
         <div class="grid">
          <Button @click="navegateToPage('categories')" class="flex justify-center bg-[var(--orange)] items-center space-x-3  rounded-sm active:scale-95">
 

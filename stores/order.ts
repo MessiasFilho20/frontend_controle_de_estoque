@@ -49,7 +49,7 @@ export const useOrder = defineStore('order',{
         }, 
 
         async createOrederAdmin( orderAdmin: orderAdmininterface ){
-            const {data, error} = await useFetch('order/create-admin',{
+            const {data, error} = await useFetch('order/createadmin',{
                 
                 method: 'post', 
                 baseURL: useRuntimeConfig().public.backnend, 
@@ -60,7 +60,9 @@ export const useOrder = defineStore('order',{
                 console.log(error.value);
             }
             if (data.value){
-
+             
+               useMetallurgy().showAllMelorryId(useModal().idCategory)
+               
             }
         }, 
 

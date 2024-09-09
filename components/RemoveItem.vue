@@ -62,8 +62,8 @@ const clickConfirm = async () =>{
         categoryID: use_Modal.idCategory, 
         itemID: Number(use_Modal.informItems.itemId),
         unidade: Number(unidades.value), 
-        userName: use_user.userID.nome, 
-        userCPF: use_user.userID.cpf
+        userName: String(use_user.userID.nome), 
+        userCPF: String(use_user.userID.cpf)
         
        })
         unidades.value = 0
