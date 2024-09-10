@@ -79,7 +79,23 @@ export const useMetallurgy = defineStore('metallurgy', {
                this.showAllMelorryId(useModal().idCategory)
                 
             }
-        }
+        }, 
+
+        async deleteItemsMallury(id : number){
+            const {data, error} = await useFetch<itemsID>(`metallurgy/delete/${id}`, {
+                method: 'delete', 
+                baseURL:useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`},
+            })
+
+            if (error.value){
+
+            }
+            if (data.value){
+                this.showAllMelorryId(useModal().idCategory)
+            }
+        }   
     }
 
+    
 })
