@@ -107,13 +107,45 @@ export const useAlerts = defineStore('useAlerts', {
                   
                     const mappeOreder = useOrder().orders.map(order => ({
                         ...order, 
-                        acesso: order.role, 
-                        atualizado: useFormateDate().setDate(order.updated_at),
-                        criado: useFormateDate().setDate(order.created_at), 
+                        
+                        NOME: order.userName,
+                        CPF: order.userCpf, 
+                        CATEGORIA: order.category_name, 
+                        DESCRIÇÂO: order.category_description, 
+                        ITEN: order.item_descricao, 
+                        FORNECERDOR: order.item_fornecedor, 
+                        "UNIDADES RETIRADAS": order.unidade, 
+                        "QUANTIDADE RESULTANTE": order.quantidade,
+                        TIPO: order.role, 
+                        "DATA DO PEDIDO": useFormateDate().setDate(order.created_at), 
+                        userName: undefined, 
+                        category_description: undefined, 
+                        userCpf: undefined, 
+                        category_name: undefined, 
+                        item_descricao: undefined, 
+                        item_fornecedor: undefined, 
+                        quantidade: undefined, 
+                        unidade: undefined,
                         role: undefined, 
                         created_at: undefined, 
-                        updated_at: undefined
-                      })).map(({role,updated_at,created_at, ...rest})=> rest)
+                        updated_at: undefined, 
+                        itemID: undefined, 
+                        id: undefined
+
+                      })).map(({
+                        itemID,
+                        id,
+                        role,updated_at,
+                        created_at,
+                        unidade,
+                        quantidade,
+                        item_fornecedor,
+                        item_descricao,
+                        category_name,
+                        category_description,
+                        userCpf,
+                        userName, 
+                        ...rest})=> rest)
                     
                       const ws = XLSX.utils.json_to_sheet(mappeOreder)
                       const wb = XLSX.utils.book_new()
