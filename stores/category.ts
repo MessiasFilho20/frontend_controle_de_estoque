@@ -22,7 +22,7 @@ export const useCategory = defineStore('category', {
                 body:{...category}
             })
             if (error.value){
-                console.log(error.value.data);
+                toastModal().createToast('error',`${error.value.data.message}`,'yellow','info')
                 
             }
             if (data.value){
@@ -43,7 +43,6 @@ export const useCategory = defineStore('category', {
             if (data.value){
                 this.categories = data.value
             }
-
             if (pending.value){
                 this.getAllCategoryes()
             }
@@ -83,10 +82,12 @@ export const useCategory = defineStore('category', {
                 body: {...category}
             })
             if (error.value){
-                console.log(error.value);
+                toastModal().createToast('Error','Error ao atualizar categoria','red','error')
             }
             if (data.value){
-                
+                toastModal().createToast('Sucesso','Categoria atualizada','green','success')
+                useModal().updateCategory = false
+                this.getAllCategoryes()
             }
         }
     }

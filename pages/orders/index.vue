@@ -28,14 +28,6 @@
         </TableHead>
         <TableHead class="">
           <div class="flex justify-center">
-            <span>
-              CPF
-            </span>
-          </div>
-        </TableHead>
-        
-        <TableHead class="">
-          <div class="flex justify-center">
             <span class="uppercase"> Categoria </span> 
           </div>
         </TableHead>        
@@ -49,7 +41,7 @@
         <TableHead class="">
           <div class="flex justify-start">
             <span class="uppercase"> 
-             items
+             itens
             </span> 
           </div>
         </TableHead>
@@ -65,7 +57,7 @@
         </TableHead>        
         <TableHead class="">
           <div class="flex justify-center">
-            <span class="uppercase"> Quantidade Resultante</span> 
+            <span class="uppercase"> Estoque</span> 
           </div>
         </TableHead>        
         <TableHead class="">
@@ -89,9 +81,6 @@
         </TableCell>
         <TableCell>
           <span class="whitespace-nowrap">{{ order.userName }}</span>
-        </TableCell>
-        <TableCell>
-          <span class="whitespace-nowrap flex justify-center">{{ order.userCpf }}</span>
         </TableCell>
         <TableCell class="">
           <span class="whitespace-nowrap">{{ order.category_name }}</span>

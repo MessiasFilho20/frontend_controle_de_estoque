@@ -24,13 +24,6 @@
         </TableHead>
         <TableHead class="">
           <div class="flex justify-center">
-            <span>
-              CPF
-            </span>
-          </div>
-        </TableHead>
-        <TableHead class="">
-          <div class="flex justify-center">
             <span class="uppercase whitespace-nowrap">selecionar</span> 
           </div>
         </TableHead>
@@ -43,9 +36,6 @@
         </TableCell>
         <TableCell>
           <span class="whitespace-nowrap">{{ users.nome }}</span>
-        </TableCell>
-        <TableCell>
-          <span class="whitespace-nowrap flex justify-center">{{ users.cpf }}</span>
         </TableCell>
         <TableCell class="">
           <div class="flex justify-center w-full">

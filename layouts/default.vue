@@ -23,6 +23,7 @@
     <CreateItems/>
     <UpdateCategory/>
     <Toaster/>
+    <EditUser/>
 </template>
 
 <script lang="ts" setup>

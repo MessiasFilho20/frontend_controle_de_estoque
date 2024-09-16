@@ -37,8 +37,8 @@ const use_catego = useCategory()
 
 const updateCategory = async () =>{
     use_catego.updateCategory(useModal().idCategory, {
-      name: use_catego.category.name, 
-      description: use_catego.category.description
+      name: (use_catego.category.name).toUpperCase(), 
+      description: (use_catego.category.description).toUpperCase()
     })
 }
 

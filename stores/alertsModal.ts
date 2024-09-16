@@ -20,14 +20,20 @@ export const useAlerts = defineStore('useAlerts', {
             }).then(async (result) =>{
                 if (result.isConfirmed){
                     Swal.fire({
-                        title: 'deletado !!!',
-                        text: 'colaborador deletado com sucesso !', 
+                        title: 'CONFIRMAR',
+                        text: 'Confirmar Deleção de Colaborador', 
                         icon:'success',
                         background: '#111', 
                         iconColor: '#ff6105', 
-                        color: 'white'
+                        color: 'white',
+                        showCancelButton: true,
+                cancelButtonColor: 'red'
+                    }).then(async (resp)=>{
+                        if(resp.isConfirmed){
+                            await useUser().deleteUserById(id)
+                        }
                     })
-                    await useUser().deleteUserById(id)
+                   
                 }
             })
 
@@ -107,15 +113,13 @@ export const useAlerts = defineStore('useAlerts', {
                   
                     const mappeOreder = useOrder().orders.map(order => ({
                         ...order, 
-                        
                         NOME: order.userName,
-                        CPF: order.userCpf, 
                         CATEGORIA: order.category_name, 
                         DESCRIÇÂO: order.category_description, 
                         ITEN: order.item_descricao, 
                         FORNECERDOR: order.item_fornecedor, 
                         "UNIDADES RETIRADAS": order.unidade, 
-                        "QUANTIDADE RESULTANTE": order.quantidade,
+                        ESTOQUE: order.quantidade,
                         TIPO: order.role, 
                         "DATA DO PEDIDO": useFormateDate().setDate(order.created_at), 
                         userName: undefined, 

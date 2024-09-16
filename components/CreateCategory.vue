@@ -17,9 +17,9 @@
         <div class="grid w-full">
        
           <span>Nome</span>
-          <input v-model="category.name" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
+          <input v-model="category.name" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text">
           <span>Descrição</span>
-          <input  v-model="category.description" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
+          <input  v-model="category.description" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text">
           <div class="mt-2 w-full">
             <Button :disabled="btncreate" @click="createCategory()"  class="w-full bg-[var(--orange)] rounded-sm">
               <div class=" active:scale-95 w-full flex justify-center space-x-3 ">
@@ -50,6 +50,8 @@
 </template>
 
 <script lang="ts" setup>
+import { CaseUpper } from 'lucide-vue-next';
+
 const use_category = useCategory()
 
 const btncreate = ref(false)
@@ -69,7 +71,7 @@ const navegateToPage = (page: string) =>{
 
 const createCategory = async () => {
     btncreate.value = true
-    await use_category.createCategory({name:category.value.name, description: category.value.description})
+    await use_category.createCategory({name: (category.value.name).toUpperCase(), description:( category.value.description).toUpperCase()})
     btncreate.value = false
     
   }

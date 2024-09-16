@@ -17,14 +17,7 @@
         <TableHead class="w-[100px]">
           Nome
         </TableHead>
-        <TableHead class="">
-          <div class="flex justify-center">
-            <span>
-              CPF
-            </span>
-          </div>
-        </TableHead>
-       
+      
         <TableHead class="">
           <div class="flex justify-start">
             <span> 
@@ -52,9 +45,7 @@
         <TableCell>
           <span class="whitespace-nowrap">{{ user.nome }}</span>
         </TableCell>
-        <TableCell>
-          <span class="whitespace-nowrap flex justify-center">{{ user.cpf }}</span>
-        </TableCell>
+       
         <TableCell class="">
           <span class="whitespace-nowrap"> {{ user.gmail }}</span>
         </TableCell>
@@ -62,7 +53,7 @@
           <span class="whitespace-nowrap"> {{ user.role }}</span>
         </TableCell>
         <TableCell class="flex space-x-1">
-          <button @click="clickEdiuser()"class="flex border justify-center w-full p-2 active:scale-95 rounded-md">
+          <button @click="clickEdiuser(user.id)"class="flex border justify-center w-full p-2 active:scale-95 rounded-md">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854zM15 5l3 3"/></svg>
           </button>
           <button @click="clickDeletuser(user.id)" class="flex border justify-center w-full p-2 active:scale-95 rounded-md">
@@ -79,12 +70,15 @@
 <script lang="ts" setup>
 const use_alerts = useAlerts()
 const allusers = useUser()
+const use_modal = useModal()
 definePageMeta({
     name: 'users'
 })
 
-const clickEdiuser = () => {
- 
+const clickEdiuser = (id : number) => {
+    use_modal.edit_user = true
+    use_modal.user_id = id
+    allusers.getUserById(id)
 }
 
 const clickDeletuser = (id: number ) =>{

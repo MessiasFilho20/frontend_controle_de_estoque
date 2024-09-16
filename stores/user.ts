@@ -6,17 +6,14 @@ export interface userInterface{
     password: string,
     passwordconfirm: string, 
 }
-export interface userInterfaceGetAll{
-    id: number
+export interface userUpdate{
     nome: string, 
     gmail: string,
     cpf: string, 
     role: string
 }
-
-export interface userId extends userInterface{
+export interface userInterfaceGetAll extends userUpdate{
     id: number
-    role: string
 }
 
 export interface userLogin {
@@ -106,6 +103,24 @@ export const useUser = defineStore('userModal',{
             }
 
         }, 
+
+        async updateUser(id: number , user: userUpdate ){
+            const {error, data} = await useFetch<userUpdate>(`user/update/${id}`, {
+                method: 'put', 
+                baseURL: useRuntimeConfig().public.backnend, 
+                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`},
+                body: {...user}
+            })
+            if(error.value){
+                toastModal().createToast('Error',`${error.value.data.message}`,'red','error')
+            }
+            if(data.value){
+                toastModal().createToast('sucesso','Usuario atualizado', 'green','success')
+                useModal().edit_user = false
+                this.getAllUsers()
+            }
+        },
+
         async getAllUsers(){
             interface allusers{
                 datas: userInterfaceGetAll[] 
