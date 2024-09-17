@@ -28,6 +28,9 @@
                                 quantidade atual: {{ useModal().informItems.quantidade }}
                             </span>
                         </div>
+                        <div v-if="{}">
+                            <span>teste </span>
+                        </div>
                         <NumberField  v-model="unidades" :min="0">
                             <label for="unidades">Unidades</label>
                             <NumberFieldContent>

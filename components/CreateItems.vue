@@ -24,6 +24,8 @@
           <input  v-model="items.fornecedor" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <span>Quantidade</span>
           <input  v-model="items.quantidade" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
+          <span>Tamanho m<sup>2</sup></span>
+          <input  v-model="items.tamanho" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
           <span> Quantidade de emergencia</span>
           <input v-model="items.quanti_emerg" class="pl-2 rounded-sm bg-gray-400 outline-none" type="text">
         </div>
@@ -55,6 +57,7 @@ const items = ref({
     descricao: '', 
     fornecedor: '', 
     img: '', 
+    tamanho: 0,
     quanti_emerg: 0,
     quantidade: 0, 
   
@@ -70,14 +73,13 @@ const createItems = async () =>{
       descricao: items.value.descricao, 
       fornecedor: items.value.fornecedor, 
       img: items.value.img, 
+      
       quanti_emerg: Number(items.value.quanti_emerg), 
       quantidade: Number(items.value.quantidade), 
+      tamanho: Number(items.value.tamanho)
     } )
 
-    items.value = {descricao: '', fornecedor: '', img: '', quanti_emerg: 0, quantidade: 0}
-
-
-
+    items.value = {descricao: '', fornecedor: '', img: '', quanti_emerg: 0, quantidade: 0, tamanho: 0}
     useModal().createItem = false
 
 

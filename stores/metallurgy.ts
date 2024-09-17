@@ -3,6 +3,7 @@ export interface itemsInterface{
     quanti_emerg: number, 
     img: string | null, 
     fornecedor: string, 
+    tamanho: number
     descricao: string,
 }
 

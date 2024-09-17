@@ -83,9 +83,10 @@ definePageMeta({
 
 const use_modal = useModal()
 
+// aqui ta errado amigo 
 const clickremove = (nome: string, quantidade: number) =>{
     useModal().removeItem = true
-     use_modal.informItems = {name: nome, quantidade: String(quantidade), itemId:String(use_modal.idItem) } 
+     use_modal.informItems = {name: nome, quantidade: String(quantidade), itemId:String(use_modal.idItem), tamanho: String('asd') } 
 
 }
 </script>
