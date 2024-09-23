@@ -57,7 +57,17 @@
         </TableHead>        
         <TableHead class="">
           <div class="flex justify-center">
+            <span class="uppercase"> tamanho</span> 
+          </div>
+        </TableHead>        
+        <TableHead class="">
+          <div class="flex justify-center">
             <span class="uppercase"> Estoque</span> 
+          </div>
+        </TableHead>        
+        <TableHead class="">
+          <div class="flex justify-center">
+            <span class="uppercase">Total</span> 
           </div>
         </TableHead>        
         <TableHead class="">
@@ -98,7 +108,13 @@
           <span class="whitespace-nowrap flex justify-center"> {{ order.unidade }} </span>
         </TableCell>
         <TableCell class="">
+          <span class="whitespace-nowrap flex justify-center"> {{ order.tamanho }} </span>
+        </TableCell>
+        <TableCell class="">
           <span class="whitespace-nowrap flex justify-center"> {{ order.quantidade }} </span>
+        </TableCell>
+        <TableCell class="">
+          <span class="whitespace-nowrap flex justify-center space-x-1"> <span> {{ order.tamanho_total }}</span>  <span>M<sup>2</sup>  </span> </span>
         </TableCell>
         <TableCell class="">
           <span class="whitespace-nowrap flex justify-center"> {{ order.role }} </span>

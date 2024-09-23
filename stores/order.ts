@@ -1,7 +1,8 @@
 export interface orderInterface {
     categoryID: number, 
     itemID: number, 
-    unidade: number
+    unidade: number, 
+    tamanho: number
 }
 
 export interface getOrdersInterface {
@@ -13,6 +14,8 @@ export interface getOrdersInterface {
     item_fornecedor: string,
     category_description: string,
     category_name: string,
+    tamanho: number, 
+    tamanho_total: number
     unidade: number,
     role: string,
     quantidade: number,

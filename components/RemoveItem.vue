@@ -27,23 +27,35 @@
                             <span>
                                 quantidade atual: {{ useModal().informItems.quantidade }}
                             </span>
+                            
+                            <div v-if="useModal().informItems.tamanho != String(0)">
+                                <span>
+                                    tamanho: {{ useModal().informItems.tamanho }} M<sup>2</sup>
+                                </span>
+                            </div>
+
                         </div>
-                        <div v-if="{}">
-                            <span>teste </span>
-                        </div>
+                       
                         <NumberField  v-model="unidades" :min="0">
-                            <label for="unidades">Unidades</label>
+                            <label for="unidades" class="uppercase">Unidades</label>
                             <NumberFieldContent>
                             <NumberFieldDecrement />
                             <NumberFieldInput />
                             <NumberFieldIncrement />
                             </NumberFieldContent>
                         </NumberField>
+                        
+                        <div v-if="useModal().informItems.tamanho != String(0) ">
+                            <div class="w-full">
+                                <span class="uppercase">m<sup>2</sup> </span>
+                               <input v-model="tamanho" class="w-full pl-2 rounded-sm bg-gray-400 outline-none" type="number">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <DialogFooter class="sm:justify-start">
 
-                    <Button @click="clickConfirm()" size="sm" class="px-3 active:scale-95">
+                    <Button @click="clickConfirm()" size="sm" class="w-full px-3 active:scale-95">
                         <span>OK</span>
                     </Button>
                 </DialogFooter>
@@ -55,9 +67,12 @@
 <script lang="ts" setup>
 
 const unidades = ref(0)
+const tamanho = ref()
 const use_order = useOrder()
 const use_Modal = useModal()
 const use_user = useUser()
+
+
 const clickConfirm = async () =>{
     
     if (use_user.user.role == 'admin'){
@@ -66,19 +81,24 @@ const clickConfirm = async () =>{
         itemID: Number(use_Modal.informItems.itemId),
         unidade: Number(unidades.value), 
         userName: String(use_user.userID.nome), 
-        userCPF: String(use_user.userID.cpf)
+        userCPF: String(use_user.userID.cpf), 
+        tamanho: Number(tamanho.value)
+
         
        })
         unidades.value = 0
+        tamanho.value = ''
         useModal().removeItem = false    
        return
     }else{
         await use_order.createOrder({
          categoryID: use_Modal.idCategory, 
          itemID: Number(use_Modal.informItems.itemId),
-         unidade: Number(unidades.value)
+         unidade: Number(unidades.value), 
+         tamanho: Number(tamanho.value)
         })
         unidades.value = 0
+        tamanho.value = ''
         useModal().removeItem = false    
     }
 }
