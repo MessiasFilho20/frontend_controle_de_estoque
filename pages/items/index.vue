@@ -1,12 +1,12 @@
 <template>
-    <div class="w-full h-full flex justify-center flex-col">
+    <div class="w-full h-full flex justify-center flex-col p-2">
       <Searche/>
      <div class="px-2">
        <CategorysAdmin/> 
       </div>
      
      <div class="w-full overflow-hidden">
-       <div >  
+       <div class="table-scrollbar" >  
         <TableItems/> 
       </div>
      </div>

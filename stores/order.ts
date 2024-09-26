@@ -43,7 +43,7 @@ export const useOrder = defineStore('order',{
             })
             
             if(error.value){
-
+                toastModal().createToast('Error',"error na remoçao do item", "yellow","info")
             }
             if(data.value){
 

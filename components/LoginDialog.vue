@@ -16,7 +16,7 @@
             <label class="font-semibold" for="email">
                 Email
             </label>
-            <input v-model="login.data" id="email" class="w-full rounded-sm outline-none p-1 bg-slate-400" type="text">
+            <input v-model="login.data" id="email" class="w-full rounded-sm outline-none p-1 bg-slate-400" type="email">
         </div>
       </div>
       <div class=" flex items-center w-full">
@@ -67,6 +67,11 @@ const navigatepage = (name: string) =>{
 }
 
 const clickConfirmar = async () =>{
+  if (login.value.data == '' || login.value.password == ''){
+      toastModal().createToast('Error','preencha os campos','yellow','info')
+    return 
+  }
+
   disab.value = true
   await useUser().loginUser({data: login.value.data, password: login.value.password})
   disab.value = false 

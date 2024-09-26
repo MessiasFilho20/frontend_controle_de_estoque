@@ -36,7 +36,7 @@ export const useUser = defineStore('userModal',{
                 body: {...user}
             })
             if (error.value){
-                toastModal().createToast('Error',String(error.value.data.message),'yellow',"info")
+                toastModal().createToast('Error',String(error.value.message),'yellow',"info")
             }
             if (data.value){
                 localStorage.setItem('login', String(data.value))
@@ -49,7 +49,7 @@ export const useUser = defineStore('userModal',{
                 body: {...user}
             })
             if (error.value){
-                toastModal().createToast('Error',String(error.value.data.error),"red","error")
+                toastModal().createToast('Error',String(error.value.data.message),"red","error")
             }
             
             if (data.value){

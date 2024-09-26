@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-2">
     <Searche/>
     <div class="uppercase w-full flex justify-center font-semibold">
         editar Items
@@ -9,9 +9,7 @@
       <TableCaption>
       Editar Items
       </TableCaption>
-      <div>
-      
-      </div>
+     
       <TableHeader  >
         <TableRow >
         <TableHead class="">

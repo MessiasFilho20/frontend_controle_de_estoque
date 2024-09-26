@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex justify-center flex-col">
+  <div class="w-full h-full flex justify-center flex-col p-2">
     <Searche/>
    <div class="px-2">
      <Categorys/> 

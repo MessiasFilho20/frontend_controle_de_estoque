@@ -1,8 +1,8 @@
 <template>
     <div class="w-full h-full flex justify-center flex-col">
         <header>
-            <div class="w-full h-10 border-b   flex items-center">
-                <div class="w-36 p-2">
+            <div class="w-full h-10 border-b flex items-center">
+                <div @click="navigatepage('index')" class="w-36 p-2 active:scale-95">
                     <img src="../assets/imagens/Dimens_o-da-logo-da-Sou--180x60-px.png" alt="">
                 </div>
                 <div class="w-full flex justify-end space-x-3 p-2">

@@ -67,7 +67,7 @@
 <script lang="ts" setup>
 
 const unidades = ref(0)
-const tamanho = ref()
+const tamanho = ref(0)
 const use_order = useOrder()
 const use_Modal = useModal()
 const use_user = useUser()
@@ -75,6 +75,16 @@ const use_user = useUser()
 
 const clickConfirm = async () =>{
     
+    if(unidades.value == 0 && tamanho.value == 0){
+        toastModal().createToast('Error', 'Preencha as cmapos corretamente', 'yellow','error')
+        return
+    }
+
+    if (use_user.user.role == undefined){
+        toastModal().createToast('Error', 'Voçe não possui cadastro para fazer remoção de itens', 'red','error')
+        return
+    }
+
     if (use_user.user.role == 'admin'){
        await use_order.createOrederAdmin({
         categoryID: use_Modal.idCategory, 
@@ -84,13 +94,14 @@ const clickConfirm = async () =>{
         userCPF: String(use_user.userID.cpf), 
         tamanho: Number(tamanho.value)
 
-        
        })
         unidades.value = 0
-        tamanho.value = ''
+        tamanho.value = 0
         useModal().removeItem = false    
        return
-    }else{
+    }
+
+    if (use_user.user.role == 'users'){
         await use_order.createOrder({
          categoryID: use_Modal.idCategory, 
          itemID: Number(use_Modal.informItems.itemId),
@@ -98,7 +109,7 @@ const clickConfirm = async () =>{
          tamanho: Number(tamanho.value)
         })
         unidades.value = 0
-        tamanho.value = ''
+        tamanho.value = 0
         useModal().removeItem = false    
     }
 }

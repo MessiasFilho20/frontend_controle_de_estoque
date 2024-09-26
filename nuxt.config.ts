@@ -32,10 +32,20 @@ export default defineNuxtConfig({
   },
   postcss: {
     plugins: {
-      tailwindcss: {},
+      tailwindcss: {
+
+      },
       autoprefixer: {},
     },
   },
+
+  vite: {
+    server: {
+      hmr: {
+        overlay: false
+      }
+    }
+  }
 
 
 })

@@ -13,22 +13,24 @@
         <TableRow >
         <TableHead class="">
           <div class="flex justify-center">
-           <span>Items</span> 
+           <span class="uppercase">Items</span> 
           </div>
         </TableHead>
         <TableHead class="w-[100px]">
-          Descrição
+          <span  class="uppercase">
+            Descrição
+          </span>
         </TableHead>
         <TableHead class="">
           <div class="flex justify-center">
-            <span>
+            <span  class="uppercase">
               Quantidade
             </span>
           </div>
         </TableHead>
         <TableHead class="">
           <div class="flex justify-center">
-            <span>
+            <span  class="uppercase">
               Tamanho
             </span>
           </div>
@@ -36,7 +38,7 @@
        
         <TableHead class="">
           <div class="flex justify-center">
-            <span> 
+            <span  class="uppercase"> 
               Fornecedor
             </span> 
           </div>
@@ -92,6 +94,7 @@
 const use_modal = useModal()
 
 const clickRemove = (nome: string, quantidade: number, tamanho: number,  id: any) =>{
+
   use_modal.removeItem = true
   use_modal.informItems = {name: nome, quantidade: String(quantidade), tamanho: String(tamanho), itemId: id,    } 
   

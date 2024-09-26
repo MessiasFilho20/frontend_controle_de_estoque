@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="p-2 table-scrollbar ">
     <Searche/>
     <div class="w-full px-2">
       <div class="flex justify-between">
@@ -11,20 +11,22 @@
         </div>
       </div>
     </div>
-    <Table v-if="useMetallurgy().all" class="custom-scrollbar" >
+    <Table v-if="useMetallurgy().all" class="" >
       <TableCaption>
       
       </TableCaption>
       
       <TableHeader  >
-        <TableRow >
+        <TableRow class="custom-scrollbar" >
         <TableHead class="">
           <div class="flex justify-center">
-           <span>Items</span> 
+           <span class="uppercase">Items</span> 
           </div>
         </TableHead>
         <TableHead class="w-[100px]">
-          Nome
+          <span class="uppercase">
+            Nome
+          </span>
         </TableHead>
         <TableHead class="">
           <div class="flex justify-center">
@@ -80,14 +82,12 @@
             <span class="uppercase whitespace-nowrap">Data do Pedido</span> 
           </div>
         </TableHead>        
-      
-        
       </TableRow>
     </TableHeader>
-    <TableBody class="border">
-      <TableRow v-for="(order, index) in use_orders.orders " >
+    <TableBody class="border ">
+      <TableRow v-for="(order, index) in use_orders.orders">
         <TableCell>
-          <span class="whitespace-nowrap flex justify-center">{{ index }}</span>
+          <span class="flex justify-center">{{index}}</span>
         </TableCell>
         <TableCell>
           <span class="whitespace-nowrap">{{ order.userName }}</span>
@@ -145,5 +145,6 @@ onMounted(async () =>{
 </script>
 
 <style>
+
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-2">
     <Searche/>
     <div class="w-full pl-2">
       <span class="uppercase font-semibold">usuarios</span>
@@ -11,16 +11,18 @@
         <TableRow >
         <TableHead class="">
           <div class="flex justify-center">
-           <span>Items</span> 
+           <span class="uppercase">Items</span> 
           </div>
         </TableHead>
         <TableHead class="w-[100px]">
-          Nome
+          <span class="uppercase">
+            Nome
+          </span>
         </TableHead>
       
         <TableHead class="">
           <div class="flex justify-start">
-            <span> 
+            <span class="uppercase"> 
               Gmail
             </span> 
           </div>
