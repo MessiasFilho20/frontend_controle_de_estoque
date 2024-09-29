@@ -1,15 +1,17 @@
 <template>
-    <div class="w-full h-full flex justify-center flex-col p-2">
-      <Searche/>
-     <div class="px-2">
-       <CategorysAdmin/> 
+    <div class=" w-full h-full flex justify-center flex-col p-2">
+      <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl">
+        <Searche/>
+       <div class="px-2">
+         <CategorysAdmin/> 
+        </div>
+       
+       <div class="w-full overflow-hidden">
+         <div class="table-scrollbar" >  
+          <TableItems/> 
+        </div>
+       </div>
       </div>
-     
-     <div class="w-full overflow-hidden">
-       <div class="table-scrollbar" >  
-        <TableItems/> 
-      </div>
-     </div>
     </div>
   </template>
   

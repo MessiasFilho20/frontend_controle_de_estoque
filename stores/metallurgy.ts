@@ -47,8 +47,10 @@ export const useMetallurgy = defineStore('metallurgy', {
             console.log(error.value);
            }
            if (data.value){
-            this.item = data.value 
-           }
+            
+            this.item = {... data.value, quantidade: Math.round(data.value.quantidade)}
+           
+        }
         },
 
         async showAllMelorryId(id: number) {
