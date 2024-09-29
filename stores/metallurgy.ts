@@ -63,7 +63,7 @@ export const useMetallurgy = defineStore('metallurgy', {
                 toastModal().createToast('Error','não há items para categoria selecionada',"yellow","warning")
                }
                if (data.value){
-                this.all = data.value
+                    this.all = data.value
                }
         },
 
