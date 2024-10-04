@@ -35,6 +35,7 @@ export const useMetallurgy = defineStore('metallurgy', {
            }
            if(data.value){
             await this.showAllMelorryId(useModal().idCategory)
+            useAlerts().alerteCreateIten()
            }
         },
 
@@ -75,12 +76,13 @@ export const useMetallurgy = defineStore('metallurgy', {
                 body: {...item}
             })
             if (error.value){
-                console.log(error.value?.data);
-                
+               
+                toastModal().createToast('Error','Erro ao Editar Iten','red',"error")
             }
             if (data.value){
                this.showAllMelorryId(useModal().idCategory)
-                
+               toastModal().createToast('Sucesso','Sucesso ao Editar Iten','green',"success")
+               useModal().editItems = false
             }
         }, 
 

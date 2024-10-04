@@ -13,7 +13,7 @@
        </div>
      </div>
      <div class="w-full h-full overflow-y-auto">
-       <Table v-if="useMetallurgy().all" class="h-screen w-full " >
+       <Table v-if="useMetallurgy().all" class=" w-full " >
          <TableCaption>
          
          </TableCaption>

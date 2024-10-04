@@ -11,6 +11,7 @@ export interface getOrdersInterface {
     userCpf: string,
     itemID: number,
     item_descricao: string,
+    descricao:string,
     item_fornecedor: string,
     category_description: string,
     category_name: string,
@@ -43,11 +44,12 @@ export const useOrder = defineStore('order',{
             })
             
             if(error.value){
-                toastModal().createToast('Error',"error na remoçao do item", "yellow","info")
+                toastModal().createToast('Error',"error na remoçao do item e registro", "yellow","info")
             }
             if(data.value){
 
                 await useMetallurgy().showAllMelorryId(order.categoryID)
+                useAlerts().alertRemoveStoque()
             }
         }, 
 
@@ -60,12 +62,13 @@ export const useOrder = defineStore('order',{
                 headers: {authorization:`bearer ${localStorage.getItem('login')}`},
             })
             if (error.value){
-                console.log(error.value);
+                toastModal().createToast('Error',"error na remoçao do item e registro", "yellow","info")
+                
             }
             if (data.value){
              
                useMetallurgy().showAllMelorryId(useModal().idCategory)
-               
+               useAlerts().alertRemoveStoque()
             }
         }, 
 

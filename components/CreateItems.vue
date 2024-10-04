@@ -53,6 +53,7 @@
 
 <script lang="ts" setup>
 const use_metallury = useMetallurgy()
+const alert = useAlerts()
 const items = ref({
     descricao: '', 
     fornecedor: '', 
@@ -69,16 +70,16 @@ const navigatePage = (page: string) => {
   })
 }
 const createItems = async () =>{
-    await use_metallury.createMetallurgy(useModal().idCategory, items.value = {
+
+  await use_metallury.createMetallurgy(useModal().idCategory, items.value = {
       descricao: items.value.descricao, 
       fornecedor: items.value.fornecedor, 
       img: items.value.img, 
-      
+    
       quanti_emerg: Number(items.value.quanti_emerg), 
       quantidade: Number(items.value.quantidade), 
       tamanho: Number(items.value.tamanho)
-    } )
-
+    })
     items.value = {descricao: '', fornecedor: '', img: '', quanti_emerg: 0, quantidade: 0, tamanho: 0}
     useModal().createItem = false
 

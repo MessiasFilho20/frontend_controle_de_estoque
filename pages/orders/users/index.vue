@@ -6,7 +6,7 @@
           <span class="font-semibold uppercase"> Criar Pedido </span>
       </div>
       <span class="text-sm p-2 font-semibold font-italic"> Selecione uma pessoa </span>
-       <div class="w-full h-full overflow-y-auto">
+       <div class="w-full h-full overflow-y-auto p-2">
          <Table v-if="useMetallurgy().all" class="custom-scrollbar" >
            <TableCaption>
            

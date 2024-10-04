@@ -28,6 +28,7 @@ export const useCategory = defineStore('category', {
             if (data.value){
                 this.category = data.value
                 this.getAllCategoryes()
+                useAlerts().alertCreateCategory()
             }
         }, 
 

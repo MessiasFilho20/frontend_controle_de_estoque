@@ -161,6 +161,43 @@ export const useAlerts = defineStore('useAlerts', {
                 }
             })
 
+        },
+
+        alerteCreateIten(){
+            Swal.fire({
+                title: "iten",
+                text: 'Iten Criado com Sucesso',  
+                icon: 'success',  iconColor: '#ff6105', 
+                confirmButtonColor: "green",
+                confirmButtonText: "OK",
+                background: '#111', 
+                color: 'white',
+            })
+        }, 
+        alertCreateCategory(){
+            Swal.fire({
+                title: "Categoria",
+                text: 'Categoria Criado com Sucesso',  
+                icon: 'success',  iconColor: '#ff6105', 
+                confirmButtonColor: "green",
+                confirmButtonText: "OK",
+                background: '#111', 
+                color: 'white',
+            })
+        },
+
+        alertRemoveStoque(){
+            Swal.fire({
+                title: "RETIRAR ",
+                text: 'Remoção de Iten Registrado com Sucesso',  
+                icon: 'success',  iconColor: '#ff6105', 
+                confirmButtonColor: "green",
+                confirmButtonText: "OK",
+                background: '#111', 
+                color: 'white',
+            })
         }
+
+
     }
-})
+    })

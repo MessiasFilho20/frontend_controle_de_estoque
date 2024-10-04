@@ -46,7 +46,7 @@ const use_items = useMetallurgy()
 const use_modal = useModal()
 
 const updateItem = async () =>{
-  use_items.updateItemsMellury(use_modal.idCategory, {
+  await use_items.updateItemsMellury(use_modal.idCategory, {
     id: use_modal.idItem,
     descricao: use_items.item.descricao,
     fornecedor: use_items.item.fornecedor,

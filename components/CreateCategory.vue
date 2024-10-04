@@ -50,10 +50,9 @@
 </template>
 
 <script lang="ts" setup>
-import { CaseUpper } from 'lucide-vue-next';
 
 const use_category = useCategory()
-
+const alert = useAlerts()
 const btncreate = ref(false)
 
 const category = ref<categoryInterface>({
@@ -70,8 +69,15 @@ const navegateToPage = (page: string) =>{
 }
 
 const createCategory = async () => {
+  if (category.value.name == '' || category.value.description == ''){
+    toastModal().createToast('Error','Campos Vazios','yellow','warning' )  
+    return 
+  }
     btncreate.value = true
     await use_category.createCategory({name: (category.value.name).toUpperCase(), description:( category.value.description).toUpperCase()})
+    category.value.name =''
+    category.value.description = ''
+    
     btncreate.value = false
     
   }
