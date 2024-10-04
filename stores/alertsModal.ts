@@ -1,6 +1,6 @@
 import Swal from "sweetalert2"
 import * as XLSX from 'xlsx'
-import {saveAs} from 'file-saver'
+import {saveAs} from "file-saver"
 
 export const useAlerts = defineStore('useAlerts', {
     state: () => ({}), 
@@ -157,7 +157,6 @@ export const useAlerts = defineStore('useAlerts', {
                     
                       const wbout = XLSX.write(wb,{bookType:'xlsx', type:'array'})
                       saveAs(new Blob([wbout],{type: 'application/octet-stream'}), 'data.xlsx')
-                    
                 }
             })
 
@@ -174,6 +173,7 @@ export const useAlerts = defineStore('useAlerts', {
                 color: 'white',
             })
         }, 
+        
         alertCreateCategory(){
             Swal.fire({
                 title: "Categoria",
@@ -197,7 +197,5 @@ export const useAlerts = defineStore('useAlerts', {
                 color: 'white',
             })
         }
-
-
     }
     })
