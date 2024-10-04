@@ -1,6 +1,7 @@
 import Swal from "sweetalert2"
 import * as XLSX from 'xlsx'
-import {saveAs} from "file-saver"
+import pkg from "file-saver"
+const  { saveAs: saveAs$1}  = pkg
 
 export const useAlerts = defineStore('useAlerts', {
     state: () => ({}), 
@@ -156,7 +157,7 @@ export const useAlerts = defineStore('useAlerts', {
                       XLSX.utils.book_append_sheet(wb, ws, 'sheet1')
                     
                       const wbout = XLSX.write(wb,{bookType:'xlsx', type:'array'})
-                      saveAs(new Blob([wbout],{type: 'application/octet-stream'}), 'data.xlsx')
+                      saveAs$1(new Blob([wbout],{type: 'application/octet-stream'}), 'data.xlsx')
                 }
             })
 
