@@ -1,5 +1,5 @@
 <template >
-  <div class="p-2 table-scrollbar w-full h-screen flex justify-center flex-col">
+  <div class="p-2 table-scrollbar w-full  flex justify-center flex-col">
     <div class="px-2 w-full flex items-center">
       <span class="w-full ">{{ useModal().name_category }}</span>
       

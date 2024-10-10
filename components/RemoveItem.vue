@@ -92,7 +92,7 @@ const clickConfirm = async () =>{
         unidade: Number(unidades.value), 
         userName: String(use_user.userID.nome), 
         userCPF: String(use_user.userID.cpf), 
-        tamanho: Number(tamanho.value)
+        tamanho: Number(tamanho.value), 
 
        })
         unidades.value = 0

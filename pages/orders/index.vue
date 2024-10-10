@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 table-scrollbar w-full h-screen flex justify-center flex-col">
+  <div class="p-2 table-scrollbar w-full h-full flex justify-center flex-col">
    <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl p-2 w-full h-full flex flex-col">
      <Searche/>
      <div class="w-full ">
