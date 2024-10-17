@@ -1,6 +1,6 @@
 <template>
   <div class="p-2 table-scrollbar w-full h-full flex justify-center flex-col">
-   <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl p-2 w-full h-full flex flex-col">
+   <div class="backdrop-blur-md bg-white/5 rounded-xl shadow-2xl p-2 w-full h-full flex flex-col">
      <Searche/>
      <div class="w-full ">
        <div class="flex justify-between">
@@ -87,7 +87,7 @@
          </TableRow>
        </TableHeader>
        <TableBody class="border-b ">
-         <TableRow v-for="(order, index) in use_orders.orders">
+         <TableRow v-for="(order, index) in use_orders.orders" class="font-semibold">
            <TableCell>
              <span class="flex justify-center">{{index}}</span>
            </TableCell>

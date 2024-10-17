@@ -1,6 +1,6 @@
 <template>
   <div class="p-2 w-full h-full flex justify-center flex-col">
-    <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl p-2">
+    <div class="backdrop-blur-md bg-white/5 rounded-xl shadow-2xl p-2">
 
       <Searche/>
       <div class="uppercase w-full flex justify-center font-semibold">
@@ -8,12 +8,9 @@
       </div>
       <Categorys/>
       <div class="w-full h-full overflow-y-auto">
-
         <Table v-if="useMetallurgy().all" class="custom-scrollbar" >
-         
-         
           <TableHeader  >
-            <TableRow >
+            <TableRow class="uppercase" >
             <TableHead class="">
               <div class="flex justify-center">
                <span>Items</span> 
@@ -51,7 +48,7 @@
           </TableRow>
         </TableHeader>
         <TableBody class="border-b">
-          <TableRow  v-for=" (items , index ) in useMetallurgy().all" >
+          <TableRow  v-for=" (items , index ) in useMetallurgy().all" class="font-semibold" >
             <TableCell>
               <span class="whitespace-nowrap flex justify-center">{{ index }}</span>
             </TableCell>

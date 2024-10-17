@@ -1,6 +1,6 @@
 <template>
     <div class=" w-full h-full flex justify-center flex-col p-2">
-      <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl">
+      <div class="backdrop-blur-md bg-white/5 rounded-xl shadow-2xl">
         <Searche/>
        <div class="px-2">
          <CategorysAdmin/> 

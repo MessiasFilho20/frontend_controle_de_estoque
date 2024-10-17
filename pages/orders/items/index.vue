@@ -1,6 +1,6 @@
 <template>
   <div class="p-2 table-scrollbar w-full h-full flex justify-center flex-col">
-    <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl">
+    <div class="backdrop-blur-md bg-white/5 rounded-xl shadow-2xl">
       <Searche/>
       <Categorys/>
       <Table v-if="useMetallurgy().all" class="custom-scrollbar" >
@@ -54,7 +54,7 @@
         </TableRow>
       </TableHeader>
       <TableBody class="border">
-        <TableRow  v-for=" (items , index ) in useMetallurgy().all" >
+        <TableRow  v-for=" (items , index ) in useMetallurgy().all" class="font-semibold" >
           <TableCell>
             <span class="whitespace-nowrap flex justify-center">{{ index }}</span>
           </TableCell>

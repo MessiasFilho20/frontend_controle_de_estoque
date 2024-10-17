@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex justify-center flex-col p-2">
-    <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl">
+    <div class="backdrop-blur-md bg-white/5 rounded-xl shadow-2xl">
       <Searche/>
       <div class="flex justify-center  ">
           <span class="font-semibold uppercase"> Criar Pedido </span>
@@ -39,7 +39,7 @@
              </TableRow>
            </TableHeader>
            <TableBody class="border-b">
-             <TableRow v-for="(users, index ) in use_users.users">
+             <TableRow v-for="(users, index ) in use_users.users" class="font-semibold">
                <TableCell>
                  <div class="flex justify-center w-5">
                    <span class="">{{ index }}</span>

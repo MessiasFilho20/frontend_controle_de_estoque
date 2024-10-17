@@ -20,7 +20,8 @@ export interface itemsID extends itemsInterface {
 export const useMetallurgy = defineStore('metallurgy', {
     state: () =>({
         all : [] as itemsID [], 
-        item: {} as itemsInterface
+        item: {} as itemsInterface,
+        emergne : false
     }), 
     actions:{
         async createMetallurgy(id:number, item: itemsInterface){
@@ -65,6 +66,8 @@ export const useMetallurgy = defineStore('metallurgy', {
                }
                if (data.value){
                     this.all = data.value
+                    this.emergne = this.all.some(item => item.quantidade <= item.quanti_emerg)
+
                }
         },
 

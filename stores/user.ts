@@ -39,7 +39,7 @@ export const useUser = defineStore('userModal',{
                 toastModal().createToast('Error',String(error.value.message),'yellow',"info")
             }
             if (data.value){
-                localStorage.setItem('login', String(data.value))
+                // localStorage.setItem('login', String(data.value))
             }
         },
         async loginUser(user: userLogin){
@@ -54,6 +54,7 @@ export const useUser = defineStore('userModal',{
             
             if (data.value){
                 localStorage.setItem('login',String(data.value))
+                
                 await this.getuser()
                 navigateTo({
                     name: 'index'

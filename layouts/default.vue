@@ -1,6 +1,6 @@
 <template>
     <div class="w-full flex flex-col h-full">
-        <header class="fixed top-0 left-0 w-full bg-black  shadow-lg z-50">
+        <header class="fixed top-0 left-0 w-full bg-[var(--headerblack)] shadow-lg z-50">
             <div class="w-full  h-10 flex items-center">
                 <div @click="navigatepage('index')" class="w-36 p-2 active:scale-95">
                     <img src="../assets/imagens/Dimens_o-da-logo-da-Sou--180x60-px.png" alt="">
@@ -14,7 +14,7 @@
             </div>
         </header>
         <div class="relative mt-6 ">
-            <img class="h-screen fixed object-cover w-full flex justify-center items-center" src="../assets/imagens/sou energy.jpg" alt="bg">
+            <img class="h-screen fixed object-cover w-full flex justify-center items-center" src="../assets/imagens/deposito2.jpg" alt="bg">
             <div class="absolute w-screen top-5 left-0 flex  justify-center z-10">
              
                     <slot class=""/>

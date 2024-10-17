@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-screen p-2 flex flex-col item-center ">
-    <div class="backdrop-blur-md bg-white/20 rounded-xl shadow-2xl">
+    <div class="backdrop-blur-md bg-white/5 rounded-xl shadow-2xl">
 
         <div class="h-full shadow-md rounded-sm p-1">
             <div class=" p-1 rounded-sm shadow-xl ">
@@ -46,6 +46,8 @@ definePageMeta({
     name:"register"
 })
 
+const use_toast= toastModal()
+
 const disable = ref(false)
 
 const user = ref<userInterface>({
@@ -57,8 +59,12 @@ const user = ref<userInterface>({
 })
 
 const clickConfirm =  async () =>{
+    if (user.value.password != user.value.passwordconfirm){
+        use_toast.createToast('error', 'senhas diferentes', 'yellow','info')
+        return
+    }
+
     disable.value = true
-    console.log(user.value); 
     await useUser().createUser({
         nome: user.value.nome, 
         gmail: user.value.gmail, 
