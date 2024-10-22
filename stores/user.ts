@@ -10,7 +10,8 @@ export interface userUpdate{
     nome: string, 
     gmail: string,
     cpf: string, 
-    role: string
+    role: string, 
+    password: string
 }
 export interface userInterfaceGetAll extends userUpdate{
     id: number

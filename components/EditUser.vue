@@ -21,11 +21,28 @@
           <span>CPF</span>
           <input  v-model="user.userID.cpf" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text">
           <span>Gmail</span>
-          <input  v-model="user.userID.gmail" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text">
-          <span>Acesso</span>
-          <input v-model="user.userID.role" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text">
+          <input  v-model="user.userID.gmail" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text"> 
+          <span>Password</span>
+          <input v-model="password" class="pl-2 rounded-sm bg-gray-500 outline-none" type="text">
+        
         </div>
     </div>
+        <Select v-model:modelValue="user.userID.role" >
+          <SelectTrigger class="w-[180px]">
+            <SelectValue placeholder="selecione um tipo de acesso" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="users">
+                Usuario
+              </SelectItem>
+              <SelectItem value="admin">
+                Administrador
+              </SelectItem>
+            
+            </SelectGroup>
+          </SelectContent>
+        </Select>
     <DialogFooter class="sm:justify-start">
         
         <Button @click="clickUpdate()" size="sm" class="px-3 active:scale-95">
@@ -39,13 +56,18 @@
 </template>
 
 <script lang="ts" setup>
+
+const password = ref('')
   const user = useUser()
   const clickUpdate = async () =>{
+   
+
     await user.updateUser(useModal().user_id, {
       nome: user.userID.nome,
       cpf: user.userID.cpf, 
       gmail: user.userID.gmail,
-      role: user.userID.role
+      role: user.userID.role, 
+      password: password.value
     })
 
   }
