@@ -43,7 +43,8 @@
 import type { userInterface } from '~/stores/user';
 
 definePageMeta({
-    name:"register"
+    name:"register", 
+    middleware: ['global-auth']
 })
 
 const use_toast= toastModal()

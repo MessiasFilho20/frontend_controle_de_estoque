@@ -78,7 +78,8 @@ const use_alerts = useAlerts()
 const allusers = useUser()
 const use_modal = useModal()
 definePageMeta({
-    name: 'users'
+    name: 'users', 
+    middleware: ['global-auth']
 })
 
 const clickEdiuser = (id : number) => {

@@ -74,6 +74,7 @@ const clickConfirmar = async () =>{
   disab.value = false 
   
   
+  
 }
 
 </script>

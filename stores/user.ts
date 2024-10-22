@@ -25,7 +25,9 @@ export const useUser = defineStore('userModal',{
     state: () =>({
         user: {} as userInterfaceGetAll ,
         userID: {} as userInterfaceGetAll ,
-        users: [] as userInterfaceGetAll[]
+        users: [] as userInterfaceGetAll[], 
+        isAuthenticated: false
+
     }), 
     actions: {
 
@@ -64,6 +66,16 @@ export const useUser = defineStore('userModal',{
            
         },
         async getuser(){
+
+            if (typeof window !== 'undefined') {
+                const token = localStorage.getItem('login')
+                if (!token) {
+        
+                    this.isAuthenticated = false
+                    return
+                }
+            }
+
             interface user {
                 data: userInterfaceGetAll
             }
@@ -74,12 +86,14 @@ export const useUser = defineStore('userModal',{
                 
             })
             if (error.value){
-                console.log(error.value.data);
+                this.isAuthenticated = false
+               
             }
             if (data.value){
                 
                 const {data: userId} = data.value
                 this.user = userId
+                this.isAuthenticated = true
             
             }
             if (pending.value){

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   build:{
     transpile:['vue-sonner']
   }, 
-  
+ 
   swiper: {
     // Swiper options
     //----------------------

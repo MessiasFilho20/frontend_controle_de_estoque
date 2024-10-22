@@ -9,6 +9,10 @@ definePageMeta({
     name:'login'
 })
 
+onMounted( async () =>{
+ 
+})
+
 
 </script>
 

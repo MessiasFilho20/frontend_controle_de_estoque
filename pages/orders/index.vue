@@ -135,7 +135,8 @@
 <script lang="ts" setup>
 const use_orders = useOrder()
 definePageMeta({
-    name: 'orders'
+    name: 'orders', 
+    middleware:['global-auth']
 })
 
 const dowloadxls = () =>{

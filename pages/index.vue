@@ -20,12 +20,13 @@
 </template>
 
 <script lang="ts" setup>
-const use_modal = useModal()
 const use_mellury = useMetallurgy()
 const use_user = useUser()
 
 definePageMeta({
-  name: 'index'
+  name: 'index',
+  middleware: ['global-auth'] 
+
 })
 
 function pedirPermissaoNotificacao() {
@@ -43,12 +44,9 @@ const dipararNotificacao  = (item: itemsInterface  ) =>  {
   }
   }
 
-
-
-
 onMounted( async () =>{
   await useCategory().getAllCategoryes()
-  
+  await use_user.getuser()
   if (use_user.user.role == 'admin'){
     pedirPermissaoNotificacao()
     const items = use_mellury.all
