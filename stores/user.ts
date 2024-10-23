@@ -70,35 +70,42 @@ export const useUser = defineStore('userModal',{
 
             if (typeof window !== 'undefined') {
                 const token = localStorage.getItem('login')
-                if (!token) {
-        
-                    this.isAuthenticated = false
-                    return
-                }
-            }
+                if (!token){ this.isAuthenticated = false
+                     return
+                    }
+            } else {return}
 
-            interface user {
-                data: userInterfaceGetAll
-            }
-            const {data, error, pending }  = await useFetch<user>('user/getuser', {
-                method: 'get', 
-                baseURL: useRuntimeConfig().public.backnend, 
-                headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}
-                
-            })
-            if (error.value){
-                this.isAuthenticated = false
-               
-            }
-            if (data.value){
-                
-                const {data: userId} = data.value
-                this.user = userId
-                this.isAuthenticated = true
+            interface user { data: userInterfaceGetAll }
             
-            }
-            if (pending.value){
-                this.getuser()
+            try{
+                const {data, error, pending }  = await useFetch<user>('user/getuser', {
+                    method: 'get', 
+                    baseURL: useRuntimeConfig().public.backnend, 
+                    headers: {Authorization: `Bearer ${localStorage.getItem('login')}`}        
+                })
+                
+                if (error.value){
+                    if(error.value.status === 400){ 
+                        this.isAuthenticated = false
+                        console.warn('Usuário não autenticado ou requisição inválida')
+                    }else{
+                        console.error('Erro ao buscar usuário:', error.value)
+                    }
+                }
+                if (data.value){
+                    
+                    const {data: userId} = data.value
+                    this.user = userId
+                    this.isAuthenticated = true
+                
+                }
+                if (pending.value){
+                    this.getuser()
+                }
+                
+            }catch(err){
+                console.error('Erro inesperado ao buscar o usuário:')
+                this.isAuthenticated = false
             }
         },
         async getUserById(id: number) {

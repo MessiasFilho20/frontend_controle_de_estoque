@@ -46,7 +46,7 @@ const dipararNotificacao  = (item: itemsInterface  ) =>  {
 
 onMounted( async () =>{
   await useCategory().getAllCategoryes()
-  await use_user.getuser()
+  // await use_user.getuser()
   if (use_user.user.role == 'admin'){
     pedirPermissaoNotificacao()
     const items = use_mellury.all
@@ -60,12 +60,8 @@ onMounted( async () =>{
 
 })
 
-
-
-
-
 </script>
-<!-- teste  -->
+
 <style scoped> 
 
 </style>

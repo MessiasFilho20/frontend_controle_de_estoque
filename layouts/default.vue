@@ -39,7 +39,7 @@ const use_category = useCategory()
 const user = useUser()
 onMounted(async () => {
     await use_category.getAllCategoryes()
-    await user.getuser()
+    // await user.getuser()
 })
 
 const color = useColorMode()
